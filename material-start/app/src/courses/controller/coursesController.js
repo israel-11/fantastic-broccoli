@@ -6,16 +6,16 @@ var app = angular.module("users")
 
    $scope.courseList=[
     {'name' : 'ICOM 5016',
-     'arrowIcon':arrowDownIcon
+     'arrowIcon':arrowLeftIcon
     },
     {'name' : 'ICOM 4035',
-     'arrowIcon':arrowDownIcon
+     'arrowIcon':arrowLeftIcon
     },
     {'name' : 'ICOM 4075',
-     'arrowIcon':arrowDownIcon
+     'arrowIcon':arrowLeftIcon
     },
     {'name' : 'ICOM 4009',
-     'arrowIcon':arrowDownIcon
+     'arrowIcon':arrowLeftIcon
      }
    ];
 
