@@ -5,16 +5,16 @@ var app = angular.module("users")
    var arrowLeftIcon = "fa fa-chevron-left";
 
    $scope.courseList=[
-    {'name' : 'ICOM 5016',
+    {'name' : 'ICOM5016',
      'arrowIcon':arrowLeftIcon
     },
-    {'name' : 'ICOM 4035',
+    {'name' : 'ICOM4035',
      'arrowIcon':arrowLeftIcon
     },
-    {'name' : 'ICOM 4075',
+    {'name' : 'ICOM4075',
      'arrowIcon':arrowLeftIcon
     },
-    {'name' : 'ICOM 4009',
+    {'name' : 'ICOM4009',
      'arrowIcon':arrowLeftIcon
      }
    ];

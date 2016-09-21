@@ -3,7 +3,7 @@
   angular
        .module('users')
        .controller('UserController', [
-          'userService', '$mdSidenav', '$mdBottomSheet', '$timeout', '$log', '$scope','$mdDialog',
+          'userService', '$mdSidenav', '$mdBottomSheet', '$timeout', '$log', '$scope','$mdDialog','$location',
           UserController
        ]);
   /**
@@ -13,7 +13,7 @@
    * @param avatarsService
    * @constructor
    */
-  function UserController( userService, $mdSidenav, $mdBottomSheet, $timeout, $log, $scope, $mdDialog ) {
+  function UserController( userService, $mdSidenav, $mdBottomSheet, $timeout, $log, $scope, $mdDialog, $location ) {
     var self = this;
     self.selected     = null;
     self.users        = [ ];
@@ -27,6 +27,10 @@
         };
 
 
+
+    $scope.route = function(path){
+        $location.path(path);
+    }
 
     userService
           .loadAllUsers()

@@ -4,7 +4,9 @@
         <md-card style="margin:0px; margin-bottom:4%; background-image:url('https://cdn-images-2.medium.com/max/1920/1*zH86wd-3URNeM_MoeaBQuQ.jpeg');" md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
                     <md-card-title>
                         <md-card-title-media flex="40">
-                            <div class="md-media-sm card-media"><md-icon class="avatar"><img style="border-radius:70px;" src="{{user.profileImage}}"></md-icon></div>
+                            <md-list-item class="md-media-sm card-media">
+                                <img style="margin-top:50%; width:50px; height:50px;" ng-src="http://dialogo1.dialogo.netdna-cdn.com/wp-content/uploads/2015/12/IMG_8918.jpg?2f7f98" class="md-avatar" />
+                            </md-list-item>
                         </md-card-title-media>
                         <md-card-title-text style="padding-top:5%" flex="60">
                             <span class="md-headline">Nombre</span>
@@ -18,19 +20,25 @@
         </md-card>
 
                 <md-list-item layout="row">
-                    <md-button ng-click="" layout="row">
+                    <md-button ng-click="route('/home')" layout="row">
+                        <p class="fa fa-home" flex="20" data-toggle="modal"></p>
+                        <p flex="80" data-toggle="modal">Home</p>
+                    </md-button>
+                </md-list-item>
+                <md-list-item layout="row">
+                    <md-button ng-click="route('/courses')" layout="row">
                         <p class="fa fa-book" flex="20" data-toggle="modal"></p>
                         <p flex="80" data-toggle="modal">Courses</p>
                     </md-button>
                 </md-list-item>
                 <md-list-item layout="row">
-                    <md-button layout="row">
+                    <md-button ng-click="route('/groups')" layout="row">
                         <p class="fa fa-users" flex="20" data-toggle="modal" data-target='#'></p>
                         <p flex="80" data-toggle="modal" data-target='#'>Group</p>
                     </md-button>
                 </md-list-item>
                 <md-list-item layout="row">
-                    <md-button layout="row">
+                    <md-button ng-click="route('/settings')" layout="row">
                         <p class="fa fa-cog" flex="20" data-toggle="modal" data-target='#'></p>
                         <p flex="80" data-toggle="modal" data-target='#'>Settings</p>
                     </md-button>
