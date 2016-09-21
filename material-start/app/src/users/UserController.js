@@ -21,7 +21,12 @@
     self.toggleList   = toggleUsersList;
     self.makeContact  = makeContact;
 
-    // Load all registered users
+    // Load registered user
+    $scope.userSettings=
+        {'name' : 'Manuel'
+        };
+
+
 
     userService
           .loadAllUsers()

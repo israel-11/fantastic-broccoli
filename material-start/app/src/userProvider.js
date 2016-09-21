@@ -9,13 +9,18 @@ var app = angular.module("users")
     });
     $routeProvider.when('/courses',
     {
-      templateUrl:    'src/courses/courses.html',
+      templateUrl:    'src/courses/view/courses.html',
       controller:     'CoursesCtrl'
     });
     $routeProvider.when('/groups',
     {
-      templateUrl:    'src/groups/groups.html',
+      templateUrl:    'src/groups/view/groups.html',
       controller:     'GroupsCtrl'
+    });
+    $routeProvider.when('/tutors',
+    {
+          templateUrl:    'src/tutors/view/tutors.html',
+          controller:     'TutorsCtrl'
     });
     $routeProvider.otherwise(
     {
