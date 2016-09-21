@@ -22,6 +22,8 @@
     self.makeContact  = makeContact;
 
     // Load all registered users
+    $scope.userSettings= {'name' : 'Manuel'};
+
 
     userService
           .loadAllUsers()

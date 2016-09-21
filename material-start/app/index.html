@@ -48,21 +48,64 @@
           <div class="modal-content">
               <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h3 class="modal-title text-center">Hi {{name}}, Welcome to #YoNoMeCuelgo</h3>
+                  <h4 class="modal-title text-center">Hi {{profile.name}}, Welcome to #YoNoMeCuelgo</h4>
               </div>
-              <div class="modal-body">
-                  <md-input-container class="md-icon-float md-block">
-                      <label>Name</label>
-                      <md-icon class="fa fa-user"></md-icon>
-                      <input ng-model="name" type="text">
+              <div class="modal-body" layout="column">
+                  <div layout="row">
+                      <md-input-container flex="40" class="md-icon-float md-block">
+                          <label>Name</label>
+                          <md-icon class="fa fa-user"></md-icon>
+                          <input ng-model="profile.name" type="text">
+                      </md-input-container>
+
+                      <md-input-container flex-offset="10" flex="50" class="md-icon-float md-block">
+                          <label>Last Name</label>
+                          <input ng-model="profile.lastName" type="text">
+                      </md-input-container>
+                  </div>
+
+                  <md-input-container class="md-icon-float md-block" style="margin-top: -2%;">
+                      <label>Email</label>
+                      <md-icon class="fa fa-envelope"></md-icon>
+                      <input ng-model="profle.email" type="text">
                   </md-input-container>
+
+                  <h4 style="padding-left:5%;">Are you a tutor?</h4>
+                  <div flex-gt-sm="50" style="margin-left: 1%">
+                      <md-switch class="md-primary" ng-model="tutor" aria-label="Switch 1" ng-true-value="'Yes'" ng-false-value="'No'" style="margin-left: 4%; width: 80px;">
+                          {{tutor}}
+                      </md-switch>
+                  </div>
+
                   <h4 style="padding-left:5%;">Profile Image</h4>
+
+                  <script>
+                      function readURL(input) {
+                        if (input.files && input.files[0]) {
+                          var reader = new FileReader();
+
+                          reader.onload = function (e) {
+                            $('#profile_pic')
+                                .attr('src', e.target.result)
+                                .width(100)
+                                .height(100);
+
+                          };
+
+                          reader.readAsDataURL(input.files[0]);
+                        }
+                      }
+                  </script>
+
+                  <div class="col-md-4 col-push-4" style="margin-top: 10px;">
+                      <img id="profile_pic" src="#" alt="your image" align="middle"/>
+                  </div>
+
                   <form class="row" id="form2" runat="server">
-                      <input style="visibility:hidden;" type="file" name="file" id="profileImage" />
-                      <div style="color:gray;" class="col-lg-4 col-md-4 col-lg-push-1 col-md-push-1" id="profileFeedback">Select a .jpg format image.</div>
-                      <label style="margin-top: -1%;" class="btn btn-info col-lg-4 col-md-4 col-lg-push-2 col-md-push-2" for="profileImage">Choose an Image</label>
+                      <input style="visibility:hidden; margin-top:-2%;" type="file" name="file" id="profileImage" onchange="readURL(this);"/>
+                      <label style="margin-top: -1%;" class="btn btn-info col-md-4 col-md-push-4 col-xs-6 col-xs-push-3" for="profileImage">Choose an Image</label>
                   </form>
-                  SearchBarHere
+
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -89,6 +132,7 @@
   <script src="./src/navBarDirective.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="src/login/submitController.js"></script>
+  <script src="src/groups/controller/groupController.js"></script>
 
   <script type="text/javascript">
 
