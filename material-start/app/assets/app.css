@@ -569,3 +569,19 @@ $duration: 1.4s;
 .social-icons .fa-xing,.social-icons .fa-xing-square{background-color:#00555C;}
 .social-icons .fa-youtube,.social-icons .fa-youtube-play,.social-icons .fa-youtube-square{background-color:#C52F30;}
 
+
+/*Styling for switch in Tutors page - Nelson Alemar*/
+md-switch ._md-bar {
+    width:300%;
+    height:100%;
+    border-radius:50px;
+}
+
+md-switch ._md-thumb-container {
+    top = 0px;
+    width = 0px;
+}
+
+md-switch ._md-container {
+    margin-right: 80px;
+}

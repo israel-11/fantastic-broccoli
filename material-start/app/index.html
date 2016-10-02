@@ -73,6 +73,38 @@
       </div>
   </div>
 
+  <!--Add New Courses Modal-->
+  <!-- First Time User Log In Modal -->
+  <div ng-controller="submitController" class="modal fade" id="newCourseModal" role="dialog">
+      <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h3 class="modal-title text-center">Hi {{name}} {{lastName}}, Welcome to #YoNoMeCuelgo</h3>
+              </div>
+              <div class="modal-body">
+                  <md-input-container class="md-icon-float md-block">
+                      <label>Name</label>
+                      <md-icon class="fa fa-user"></md-icon>
+                      <input ng-model="name" type="text">
+                  </md-input-container>
+                  <h4 style="padding-left:5%;">Profile Image</h4>
+                  <form class="row" id="form2" runat="server">
+                      <input style="visibility:hidden;" type="file" name="file" id="profileImage" />
+                      <div style="color:gray;" class="col-lg-4 col-md-4 col-lg-push-1 col-md-push-1" id="profileFeedback">Select a .jpg format image.</div>
+                      <label style="margin-top: -1%;" class="btn btn-info col-lg-4 col-md-4 col-lg-push-2 col-md-push-2" for="profileImage">Choose an Image</label>
+                  </form>
+                  <searchbar ng-controller="ContactChipDemoCtrl"></searchbar>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button ng-click="submitInfo()" data-dismiss="modal" class="btn btn-success">Submit</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
 
 
   </body>
@@ -90,12 +122,13 @@
   <script src="./src/navBarDirective.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="src/login/submitController.js"></script>
-<<<<<<< HEAD
+
   <script src="src/courses/controller/coursesController.js"></script>
-=======
+
   <script src="src/search bar/controller/searchBarController.js"></script>
   <script src="src/search bar/directive/searchBarDirective.js"></script>
->>>>>>> nelsonBranch
+
+  <script src = "src/tutors/controller/tutorsController.js"></script>
 
   <script type="text/javascript">
 
