@@ -4,6 +4,7 @@ var app = angular.module("users")
    $scope.availability = "Available";
    var arrowDownIcon = "fa fa-chevron-down";
    var arrowLeftIcon = "fa fa-chevron-left";
+   $scope.message = "Add as many courses as you like, then click \"Add\" when finished";
 
    $scope.courseList=[
     {'code' : 'ICOM5016',
@@ -19,6 +20,7 @@ var app = angular.module("users")
      'arrowIcon':arrowLeftIcon
      }
    ];
+
 
 
    $scope.toggleCourse = function(i){

@@ -4,10 +4,12 @@
       .module('users')
       .controller('ContactChipDemoCtrl', DemoCtrl);
 
-  function DemoCtrl ($q, $timeout) {
+  function DemoCtrl ($q, $timeout, $scope) {
     var self = this;
     var pendingSearch, cancelSearch = angular.noop;
     var cachedQuery, lastSearch;
+    $scope.message = "What courses are you taking this semester?";
+    $scope.tempCourses = [];
 
     self.allContacts = loadContacts();
     self.contacts = [self.allContacts[0]];
@@ -103,10 +105,13 @@
           email: cParts[0].toLowerCase() + ' - ' + cParts[1].toLowerCase(),
         };
         contact._lowername = contact.title.toLowerCase();
+        $scope.tempCourses.push({'title': contact.title});
         return contact;
       });
     }
   }
+
+
 
 
 })();
