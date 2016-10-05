@@ -2,6 +2,9 @@
   'use strict';
   angular
       .module('users')
+      .config(['$mdIconProvider', function($mdIconProvider) {
+              $mdIconProvider.icon('md-close', 'img/icons/ic_close_24px.svg', 24);
+            }])
       .controller('searchBarCtrl', DemoCtrl);
 
 //  function DemoCtrl ($q, $timeout, $scope) {
@@ -128,6 +131,8 @@ var self = this;
     self.selectedItemChange = selectedItemChange;
     self.searchTextChange   = searchTextChange;
 
+    $scope.tempCourses=[];
+
     // ******************************
     // Internal methods
     // ******************************
@@ -152,7 +157,8 @@ var self = this;
     }
 
     function selectedItemChange(item) {
-      console.log('Dimelo nelson, miralo aqui: '+ item.name)
+      console.log('Dimelo nelson, miralo aqui: '+ item.Code);
+      $scope.tempCourses.push({'Code': item.Code});
     }
 
     /**
@@ -206,7 +212,25 @@ var self = this;
     $scope.saveCourses = function(){
             console.log($scope.curso);
         }
+
+    //Contact chips implementation
+    self.readonly = false;
+
+    // Lists of fruit names and Vegetable objects
+    self.roCourseNames = angular.copy(self.repos);
+    self.editableCourseNames = angular.copy(self.repos);
+
+    self.tags = [];
+
+    self.newCourse = function(chip) {
+      return {
+        name: chip,
+        type: 'unknown'
+      };
+    };
+
   }
+
 
 
 

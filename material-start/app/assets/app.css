@@ -589,7 +589,7 @@ md-switch ._md-container {
 md-switch ._md-thumb {
     position: absolute;
     margin: 0;
-    top: 0;
+    top: -5px;
     outline: none;
     height: 30px;
     width: 30px;
@@ -599,4 +599,10 @@ md-switch ._md-thumb {
 
 md-switch.md-checked ._md-thumb-container {
     transform: translate3d(500%, 0, 0);
+}
+
+md-switch ._md-bar {
+    left: 1px;
+    top: 0;
+    position: absolute;
 }
