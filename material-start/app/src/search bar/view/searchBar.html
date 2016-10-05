@@ -1,9 +1,37 @@
-<div ng-controller="ContactChipDemoCtrl as ctrl" layout="column" ng-cloak="" class="chipsdemoContactChips" ng-app="MyApp">
+<div ng-controller="searchBarCtrl as ctrl" layout="column" ng-cloak="" class="chipsdemoContactChips" ng-app="MyApp">
 
     <md-content class="md-padding autocomplete" layout="column">
         <br>
         <h2 class="md-title">{{ message }}</h2>
-        <md-contact-chips ng-model="ctrl.asyncContacts" md-contacts="ctrl.delayedQuerySearch($query)" md-contact-name="title" md-contact-email="email" md-require-match="true" md-highlight-flags="i" filter-selected="ctrl.filterSelected" placeholder="Example: ICOM5016 - Databases">
+        <md-autocomplete
+                ng-disabled="ctrl.isDisabled"
+                md-no-cache="ctrl.noCache"
+                md-selected-item="ctrl.selectedItem"
+                md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+                md-search-text="ctrl.searchText"
+                md-selected-item-change="ctrl.selectedItemChange(item)"
+                md-items="item in ctrl.querySearch(ctrl.searchText)"
+                md-item-text="item.name"
+                md-min-length="0"
+                placeholder="Pick an Angular repository"
+                md-menu-class="autocomplete-custom-template">
+            <md-item-template>
+          <span class="item-title">
+            <md-icon></md-icon>
+            <span> {{item.Code}} </span>
+          </span>
+                <span class="item-metadata">
+            <span class="item-metastat">
+              <strong>{{item.Dash}}</strong>
+            </span>
+            <span class="item-metastat">
+              <strong>{{item.Title}}</strong>
+            </span>
+          </span>
+            </md-item-template>
+        </md-autocomplete>
     </md-content>
 </div>
+
+
 

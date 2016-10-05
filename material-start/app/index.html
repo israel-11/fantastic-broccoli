@@ -63,7 +63,7 @@
                       <div style="color:gray;" class="col-lg-4 col-md-4 col-lg-push-1 col-md-push-1" id="profileFeedback">Select a .jpg format image.</div>
                       <label style="margin-top: -1%;" class="btn btn-info col-lg-4 col-md-4 col-lg-push-2 col-md-push-2" for="profileImage">Choose an Image</label>
                   </form>
-                  <searchbar ng-controller="ContactChipDemoCtrl"></searchbar>
+                  <searchbar ng-controller="searchBarCtrl"></searchbar>
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -75,7 +75,7 @@
 
   <!--Add New Courses Modal-->
 
-  <div ng-controller="submitController" class="modal fade" id="newCourseModal" role="dialog">
+  <div ng-controller="searchBarCtrl" class="modal fade" id="newCourseModal" role="dialog">
       <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
@@ -84,11 +84,11 @@
                   <h3 class="modal-title text-center">Please search for the courses you wish to add to your repertoire</h3>
               </div>
               <div class="modal-body">
-                  <searchbar ng-controller="ContactChipDemoCtrl" ng-controller="tutorsController"></searchbar>
+                  <searchbar></searchbar>
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                  <button ng-click="submitInfo()" data-dismiss="modal" class="btn btn-success" id="addMore">Done</button>
+                  <button ng-click="saveCourses()" data-dismiss="modal" class="btn btn-success">Done</button>
               </div>
           </div>
       </div>
