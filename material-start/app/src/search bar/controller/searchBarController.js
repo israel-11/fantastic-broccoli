@@ -168,32 +168,27 @@ var self = this;
       var repos = [
         {
           'Code': 'ICOM4035',
-          'Dash': '-',
           'Title': 'Data Structures'
         },
         {
           'Code': 'ICOM4075',
-          'Dash': '-',
           'Title': 'Foundations of Computing'
         },
         {
           'Code': 'ICOM4015',
-          'Dash': '-',
           'Title': 'Advanced Programming'
         },
         {
           'Code': 'ICOM4009',
-          'Dash': '-',
           'Title': 'Software Engineering'
         },
         {
           'Code': 'MATE666',
-          'Dash': '-',
           'Title': 'Mate der Diablou'
         }
       ];
       return repos.map( function (repo) {
-        repo.value = repo.Code.toLowerCase()+repo.Dash+repo.Title.toLowerCase();
+        repo.value = repo.Code.toLowerCase()+'-'+repo.Title.toLowerCase();
         return repo;
       });
     }
@@ -224,7 +219,7 @@ var self = this;
 
     self.newCourse = function(chip) {
       return {
-        name: chip,
+        Code: chip,
         type: 'unknown'
       };
     };
