@@ -159,7 +159,7 @@ var self = this;
 
     function selectedItemChange(item) {
       console.log('Dimelo nelson, miralo aqui: '+ item.Code);
-      $scope.tempCourses.push({'Code': item.Code})
+//      $scope.tempCourses.push(item);
     }
 
     /**
@@ -206,8 +206,18 @@ var self = this;
 
     }
     $scope.saveCourses = function(){
-            console.log($scope.curso);
-        }
+//       var i;
+//       for(i = 0; i < $scope.tempCourses; i++)
+//       {
+//         var obj = JSON.parse($scope.courseList);
+//         obj.push({'code': $scope.tempCourses[i].Code, 'arrowIcon':arrowLeftIcon});
+//         $scope.courseList = JSON.stringify(obj);
+//
+//       }
+        var obj = JSON.parse($scope.courseList);
+        obj.push({'code': 'ICOM9999', 'arrowIcon':arrowLeftIcon});
+        $scope.courseList = JSON.stringify(obj);
+     }
 
     //Contact chips implementation
     self.readonly = false;
@@ -220,7 +230,7 @@ var self = this;
 
     self.newCourse = function(chip) {
       return {
-        Code: chip
+        Code: chip.Code
       };
     };
 
@@ -229,7 +239,7 @@ var self = this;
     function removeChip(chip) {
 //        var data = JSON.parse($scope.tempCourses);
 //        var index = data.map(function(d) { return d['Code']; }).indexOf(chip.Code);
-        console.log(index);
+        console.log($scope.tempCourses);
     }
 
   }

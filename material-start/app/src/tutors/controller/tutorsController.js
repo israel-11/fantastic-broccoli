@@ -33,5 +33,17 @@ var app = angular.module("users")
 
    }
 
+   $scope.saveCourses = function() {
+
+        for(i = 0; i < $scope.tempCourses; i++)
+        {
+            var obj = JSON.parse($scope.courseList);
+            obj.push({'code': $scope.tempCourses[i].Code, 'arrowIcon':arrowLeftIcon});
+            $scope.courseList = JSON.stringify(obj);
+
+        }
+
+   }
+
 
 });
