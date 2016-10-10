@@ -214,9 +214,8 @@ var self = this;
 //         $scope.courseList = JSON.stringify(obj);
 //
 //       }
-        var obj = JSON.parse($scope.courseList);
-        obj.push({'code': 'ICOM9999', 'arrowIcon':arrowLeftIcon});
-        $scope.courseList = JSON.stringify(obj);
+        console.log($rootScope);
+        $scope.courseList.push({'code': 'ICOM4444', 'arrowIcon': arrowLeftIcon});
      }
 
     //Contact chips implementation
