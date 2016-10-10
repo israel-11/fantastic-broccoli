@@ -4,8 +4,13 @@ var app = angular.module("users")
 
     $routeProvider.when('/home',
     {
-      templateUrl:    'home.html',
+      templateUrl:    'src/home_page/view/home_page.html',
       controller:     'HomeCtrl'
+    });
+    $routeProvider.when('/login',
+    {
+      templateUrl:    'login.html',
+      controller:     'LoginCtrl'
     });
     $routeProvider.when('/courses',
     {
@@ -26,8 +31,8 @@ var app = angular.module("users")
     {
       redirectTo:     '/home',
       controller:     'HomeCtrl',
-    }
-  );
+    });
+
 });
 
 app.controller('NavCtrl',
@@ -54,5 +59,9 @@ app.controller('GroupsCtrl', function($scope, $compile) {
 
 
 app.controller('HomeCtrl', function($scope, $compile) {
+
+});
+
+app.controller('LoginCtrl', function($scope, $compile) {
 
 });

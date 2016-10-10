@@ -5,13 +5,13 @@ var app = angular.module("users")
     var arrowLeftIcon = "fa fa-chevron-left"
 
 
-    var members = [{'name' : 'Tahiri'}, {'name' : 'Nelson Triple A'}]
+    var members = [{'name' : 'Tahiri Ciquitraque'}, {'name' : 'Nelson Triple A'}, {'name' : 'Israel La Bestia'}]
 
     $scope.groupList = [
-    {'id' : '1', 'name' : 'Project', 'size' : '3', 'limit' : '3', 'arrowIcon' : arrowLeftIcon, 'members' : members},
-    {'id' : '2', 'name' : 'Exam 1', 'size' : '2', 'limit' : '3', 'arrowIcon' : arrowLeftIcon, 'members' : members},
-    {'id' : '3', 'name' : 'Study Group', 'size' : '1', 'limit' : '8', 'arrowIcon' : arrowLeftIcon, 'members': members},
-    {'id' : '4', 'name' : 'Chilea', 'size' : '4', 'limit' : '5', 'arrowIcon' : arrowLeftIcon, 'members': members}
+    {'id' : '1', 'name' : 'Project', 'size' : '3', 'limit' : '4', 'arrowIcon' : arrowLeftIcon, 'members' : members},
+    {'id' : '2', 'name' : 'Exam 1', 'size' : '3', 'limit' : '3', 'arrowIcon' : arrowLeftIcon, 'members' : members},
+    {'id' : '3', 'name' : 'Study Group', 'size' : '3', 'limit' : '8', 'arrowIcon' : arrowLeftIcon, 'members': members},
+    {'id' : '4', 'name' : 'Chilea', 'size' : '3', 'limit' : '5', 'arrowIcon' : arrowLeftIcon, 'members': members}
     ]
 
 

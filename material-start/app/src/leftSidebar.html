@@ -9,37 +9,43 @@
                     </md-list-item>
                 </md-card-title-media>
                 <md-card-title-text style="padding-top:5%" flex="60">
-                    <span class="md-headline">Name</span>
+                    <span class="md-headline">Manuel</span>
                     <span class="md-subhead">Available</span>
                 </md-card-title-text>
             </md-card-title>
             <md-card-actions style="padding-left:4%;" layout="row">
                 <p style="word-break: break-all" flex="65">Que es la que?</p>
-                <p flex-offset="5" flex="30"><md-button data-toggle="modal" data-target="#customizeModal"><b>Customize</b></md-button></p>
+                <!--<p flex-offset="5" flex="30"><md-button data-toggle="modal" data-target="#customizeModal"><b>Customize</b></md-button></p>-->
             </md-card-actions>
         </md-card>
         <md-list-item layout="row">
-            <md-button ng-click="" layout="row">
-                <p class="fa fa-book" flex="20" data-toggle="modal"></p>
-                <p flex="80" data-toggle="modal">Courses</p>
+            <md-button layout="row" href="#/home" class="col-xs-12">
+                <p class="fa fa-home fa-lg" data-toggle="modal"></p>
+                <p flex="40" data-toggle="modal" data-target='#home'>Home</p>
             </md-button>
         </md-list-item>
         <md-list-item layout="row">
-            <md-button layout="row">
-                <p class="fa fa-users" flex="20" data-toggle="modal" data-target='#groups'></p>
-                <p flex="80" data-toggle="modal" data-target='#groups'>Groups</p>
+            <md-button layout="row" href="#/courses" class="col-xs-12">
+                <p class="fa fa-book fa-lg" data-toggle="modal"></p>
+                <p flex="45" data-toggle="modal" data-target='#courses'>Courses</p>
             </md-button>
         </md-list-item>
         <md-list-item layout="row">
-            <md-button layout="row">
-                <p class="fa fa-cog" flex="20" data-toggle="modal" data-target='#'></p>
-                <p flex="80" data-toggle="modal" data-target='#'>Settings</p>
+            <md-button layout="row" href="#/groups" class="col-xs-12">
+                <p class="fa fa-users fa-lg" data-toggle="modal"></p>
+                <p flex="40" data-toggle="modal" data-target='#groups'>Groups</p>
             </md-button>
         </md-list-item>
         <md-list-item layout="row">
-            <md-button ng-click="" layout="row">
-                <p class="fa fa-power-off" flex="20"><img ng-src="" alt=""></p>
-                <p flex="80">Log Out</p>
+            <md-button layout="row" href="" class="col-xs-12">
+                <p class="fa fa-cog fa-lg" data-toggle="modal"></p>
+                <p flex="45" data-toggle="modal" data-target='#'>Settings</p>
+            </md-button>
+        </md-list-item>
+        <md-list-item layout="row">
+            <md-button layout="row" href="#/login" class="col-xs-12">
+                <p class="fa fa-power-off fa-lg" data-toggle="modal"></p>
+                <p flex="45" data-toggle="modal" data-target="#login">Log Out</p>
             </md-button>
         </md-list-item>
     </md-list>
