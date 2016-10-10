@@ -130,6 +130,7 @@ var self = this;
     self.querySearch   = querySearch;
     self.selectedItemChange = selectedItemChange;
     self.searchTextChange   = searchTextChange;
+    self.removeChip = removeChip;
 
     $scope.tempCourses=[];
 
@@ -158,7 +159,7 @@ var self = this;
 
     function selectedItemChange(item) {
       console.log('Dimelo nelson, miralo aqui: '+ item.Code);
-      $scope.tempCourses.push({'Code': item.Code});
+      $scope.tempCourses.push({'Code': item.Code})
     }
 
     /**
@@ -219,12 +220,20 @@ var self = this;
 
     self.newCourse = function(chip) {
       return {
-        Code: chip,
-        type: 'unknown'
+        Code: chip
       };
     };
 
+
+
+    function removeChip(chip) {
+//        var data = JSON.parse($scope.tempCourses);
+//        var index = data.map(function(d) { return d['Code']; }).indexOf(chip.Code);
+        console.log(index);
+    }
+
   }
+
 
 
 

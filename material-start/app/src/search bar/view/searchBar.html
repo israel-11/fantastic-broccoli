@@ -3,28 +3,24 @@
     <md-content class="md-padding autocomplete" layout="column">
         <br>
         <h2 class="md-title">{{ message }}</h2>
-        <md-chips ng-model="tempCourses" readonly="ctrl.readonly" md-removable="ctrl.removable" md-transform-chip="ctrl.newCourse($chip)">
+        <md-chips ng-model="tempCourses" readonly="ctrl.readonly" md-removable="ctrl.removable" md-transform-chip="ctrl.newCourse($chip)" md-require-match="true" md-on-remove="ctrl.removeChip($chip)">
             <md-autocomplete
                     ng-disabled="ctrl.isDisabled"
-                    md-no-cache="ctrl.noCache"
+                    md-no-cache="true"
                     md-selected-item="ctrl.selectedItem"
                     md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
                     md-search-text="ctrl.searchText"
                     md-selected-item-change="ctrl.selectedItemChange(item)"
                     md-items="item in ctrl.querySearch(ctrl.searchText)"
-                    md-item-text="item.Code"
-                    md-min-length="0"
+                    md-item-text="item"
+                    md-min-length="1"
                     placeholder="Ex: ICOM5016 - Databases"
                     md-menu-class="autocomplete-custom-template">
                 <md-item-template>
                   <span class="item-title">
                     <md-icon></md-icon>
-                    <span> {{item.Code}} </span>
+                    <span> {{item.Code+' - '}} </span>
                   </span>
-                  <span class="item-metadata">
-                    <span class="item-metastat">
-                      <strong>-</strong>
-                    </span>
                     <span class="item-metastat">
                       <strong>{{item.Title}}</strong>
                     </span>
