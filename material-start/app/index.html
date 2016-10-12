@@ -20,6 +20,7 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 
+
     <style type="text/css">
         /**
          * Hide when Angular is not yet loaded and initialized
@@ -63,11 +64,32 @@
                       <div style="color:gray;" class="col-lg-4 col-md-4 col-lg-push-1 col-md-push-1" id="profileFeedback">Select a .jpg format image.</div>
                       <label style="margin-top: -1%;" class="btn btn-info col-lg-4 col-md-4 col-lg-push-2 col-md-push-2" for="profileImage">Choose an Image</label>
                   </form>
-                  <searchbar ng-controller="ContactChipDemoCtrl"></searchbar>
+                  <searchbar ng-controller="searchBarCtrl"></searchbar>
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                   <button ng-click="submitInfo()" data-dismiss="modal" class="btn btn-success">Submit</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!--Add New Courses Modal-->
+
+  <div ng-controller="searchBarCtrl as ctrl" class="modal fade" id="newCourseModal" role="dialog">
+      <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h3 class="modal-title text-center">Please search for the courses you wish to add to your repertoire</h3>
+              </div>
+              <div class="modal-body">
+                  <searchbar></searchbar>
+              </div>
+              <div ng-controller="UserController" class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                  <button ng-click="saveCourses(ctrl.tempCourses)" data-dismiss="modal" class="btn btn-success">Done</button>
               </div>
           </div>
       </div>
@@ -90,12 +112,16 @@
   <script src="./src/navBarDirective.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="src/login/submitController.js"></script>
-<<<<<<< HEAD
+  <script src="../node_modules/angular-messages/angular-messages.min.js"></script>
+  <script src="http://ngmaterial.assets.s3.amazonaws.com/svg-assets-cache.js"></script>
+
+
   <script src="src/courses/controller/coursesController.js"></script>
-=======
+
   <script src="src/search bar/controller/searchBarController.js"></script>
   <script src="src/search bar/directive/searchBarDirective.js"></script>
->>>>>>> nelsonBranch
+
+  <script src = "src/tutors/controller/tutorsController.js"></script>
 
   <script type="text/javascript">
 

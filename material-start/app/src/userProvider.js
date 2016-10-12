@@ -52,6 +52,10 @@ app.controller('GroupsCtrl', function($scope, $compile) {
 
 });
 
+app.controller('TutorsCtrl', function($scope, $compile) {
+
+
+});
 
 app.controller('HomeCtrl', function($scope, $compile) {
 

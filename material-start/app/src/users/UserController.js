@@ -92,6 +92,64 @@
         }
     }
 
+
+   /* All of the following pertains to tutors*/
+
+   var arrowDownIcon = "fa fa-chevron-down";
+   var arrowLeftIcon = "fa fa-chevron-left";
+   $scope.availability = "Available";
+
+   self.removeCourse = removeCourse;
+
+    $scope.tutorCourseList=[
+       {'code' : 'ICOM5016',
+        'arrowIcon':arrowLeftIcon
+       },
+       {'code' : 'ICOM4035',
+        'arrowIcon':arrowLeftIcon
+       },
+       {'code' : 'ICOM4075',
+        'arrowIcon':arrowLeftIcon
+       },
+       {'code' : 'ICOM4009',
+        'arrowIcon':arrowLeftIcon
+        }
+      ];
+
+   $scope.saveCourses = function(tempCourses) {
+
+   console.log(tempCourses);
+
+          for(i = 0; i < tempCourses; i++)
+          {
+            console.log(tempCourses);
+          }
+
+     }
+
+   function removeCourse(course) {
+           var index = $scope.tutorCourseList.indexOf(course);
+           console.log(index);
+           $scope.tutorCourseList.splice(index,1);
+
+      }
+
+    $scope.toggleCourse = function(i){
+       if($scope.tutorCourseList[i].arrowIcon.search(arrowDownIcon)>-1){
+           $scope.tutorCourseList[i].arrowIcon = arrowLeftIcon;
+       }
+       else{
+           $scope.tutorCourseList[i].arrowIcon = arrowDownIcon;
+       }
+    }
+
+
+
+
+
+
+
+
   }
 
 })();
