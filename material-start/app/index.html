@@ -73,6 +73,100 @@
       </div>
   </div>
 
+  <!-- Tutor Profile Modal -->
+  <div class="modal fade" id="tutor-profile-modal" role="dialog">
+      <div class="modal-dialog">
+         <div class="modal-body">
+          <section style="margin-top:33%;" class="card">
+              <figure class="panel meta">
+                  <picture>
+                      <img class="avatar" src="http://www.elgenero.com/images/anuel.jpg" width="128" height="128"/>
+                      <img class="company-logo" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/67516/b-01.png" alt="BigglesCodes" width="40" height="40"/>
+                  </picture>
+                  <figcaption>
+
+                      <h1 class="name">Nelson Triple A</h1>
+                      <h3 class="title">El Tutorazo</h3>
+                  </figcaption>
+              </figure>
+
+              <div class="panel info">
+                  <dl class="skillz">
+                      <dt>ICOM4009</dt>
+                      <dd>98</dd>
+                      <dt>ICOM5016</dt>
+                      <dd>86</dd>
+                      <dt>ICOM4035</dt>
+                      <dd>28</dd>
+                      <dt>ICOM4075</dt>
+                      <dd>32</dd>
+                  </dl>
+
+                  <ul class="social">
+                      <li><a class="fa fa-phone" href="">Phone</a></li>
+                      <li><a class="fa fa-envelope" href="">Gmail</a></li>
+                      <li><a class="fa fa-facebook" href="">Facebook</a></li>
+                      <li><a class="fa fa-twitter" href="">Twitter</a></li>
+                      <li><a class="fa fa-linkedin" href="">LinkedIn</a></li>
+                  </ul>
+
+              </div>
+
+          </section></div>
+          <!--&lt;!&ndash; Modal content&ndash;&gt;-->
+          <script>
+              $('.info dd').each(function() {  $(this).css({width: $(this).text()+'%'});});
+          </script>
+          <link rel="stylesheet" href="assets/tutors.css"/>
+          <!--<div class="modal-content">-->
+              <!--<div class="modal-header">-->
+                  <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                  <!--<h3 class="modal-title text-center">Tutor Profile</h3>-->
+              <!--</div>-->
+              <!--<div class="modal-body">-->
+                  <!--<section class="card">-->
+                      <!--<figure class="panel meta">-->
+                          <!--<picture>-->
+                              <!--<img class="avatar" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/67516/Screen_Shot_2015-11-18_at_11.47.23_AM.png" width="128" height="128"/>-->
+                              <!--<img class="company-logo" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/67516/b-01.png" alt="BigglesCodes" width="40" height="40"/>-->
+                          <!--</picture>-->
+                          <!--<figcaption>-->
+
+                              <!--<h1 class="name">Biggles</h1>-->
+                              <!--<h3 class="title">Angry Unicorn</h3>-->
+                          <!--</figcaption>-->
+                      <!--</figure>-->
+
+                      <!--<div class="panel info">-->
+                          <!--<dl class="skillz">-->
+                              <!--<dt>CSS</dt>-->
+                              <!--<dd>98</dd>-->
+                              <!--<dt>Javascript</dt>-->
+                              <!--<dd>86</dd>-->
+                              <!--<dt>PHP</dt>-->
+                              <!--<dd>28</dd>-->
+                              <!--<dt>Ruby</dt>-->
+                              <!--<dd>32</dd>-->
+                          <!--</dl>-->
+
+                          <!--<ul class="social">-->
+                              <!--<li><a class="icon-social-twitter" href="https://twitter.com/bigglesrocks">Twitter</a></li>-->
+                              <!--<li><a class="icon-social-github" href="https://github.com/jlegosama">Github</a></li>-->
+                              <!--<li><a class="icon-social-stack-overflow" href="http://stackoverflow.com/users/664904/jlego">StackOverflow</a></li>-->
+                              <!--<li><a class="icon-social-dribbble" href="https://dribbble.com/biggles">Dribbble</a></li>-->
+                              <!--<li><a class="icon-social-medium" href="#">Medium</a></li>-->
+                          <!--</ul>-->
+
+                      <!--</div>-->
+
+                  <!--</section>-->
+              <!--</div>-->
+              <!--<div class="modal-footer">-->
+                  <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+              <!--</div>-->
+          <!--</div>-->
+      </div>
+  </div>
 
 
   </body>
@@ -90,12 +184,10 @@
   <script src="./src/navBarDirective.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="src/login/submitController.js"></script>
-<<<<<<< HEAD
   <script src="src/courses/controller/coursesController.js"></script>
-=======
   <script src="src/search bar/controller/searchBarController.js"></script>
   <script src="src/search bar/directive/searchBarDirective.js"></script>
->>>>>>> nelsonBranch
+
 
   <script type="text/javascript">
 

@@ -14,12 +14,11 @@
             </md-button>
             <div id="{{course.name}}" class="collapse">
                 <md-subheader class="md-no-sticky">Tutors available</md-subheader>
-                <md-list-item class="md-3-line">
-                    <img ng-src="http://www.elgenero.com/images/anuel.jpg" class="md-avatar" />
-                    <div class="md-list-item-text" layout="row">
-                        <h3 style="margin-bottom:1%;">Nelson Triple A</h3>
-                    </div>
-
+                <md-list-item style="cursor:pointer;" type="button" data-toggle="modal" data-target='#tutor-profile-modal'>
+                    <img ng-src="http://www.elgenero.com/images/anuel.jpg" class="md-avatar col-xs-2" />
+                    <div style="font-size:150%;" class="col-xs-6" >Nelson Triple A</div>
+                    <div style="font-size:150%;" class="col-xs-4">View Info</div>
+                    <md-divider></md-divider>
                 </md-list-item>
             </div>
         </md-list>

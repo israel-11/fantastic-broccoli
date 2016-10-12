@@ -12,6 +12,11 @@ var app = angular.module("users")
       templateUrl:    'src/courses/view/courses.html',
       controller:     'CoursesCtrl'
     });
+    $routeProvider.when('/courses/tutors-profile',
+    {
+          templateUrl:    'src/tutors/view/tutors-profile.html',
+          controller:     'TutorsProfileCtrl'
+    });
     $routeProvider.when('/groups',
     {
       templateUrl:    'src/groups/view/groups.html',
