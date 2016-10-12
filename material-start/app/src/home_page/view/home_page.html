@@ -1,0 +1,45 @@
+<div class="row">
+    <md-card ng-controller="groupController as group" class="col-xs-10 col-xs-push-3" flex="50" style="margin-top:5%; margin-bottom:4%;" md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">It's the final countdown!</span>
+            </md-card-title-text>
+        </md-card-title>
+    </md-card>
+</div>
+<div class="row">
+    <md-card ng-controller="groupController as group" class="col-md-4 col-md-push-2 col-xs-12 col-xs-push-3" flex="50" style="margin-top:5%; margin-bottom:4%;" md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
+        <md-card-title>
+            <md-card-title-text flex="60">
+                <span class="md-headline">My Groups</span>
+            </md-card-title-text>
+            <md-button href="#/groups" class="btn btn-default col-md-4">See All</md-button>
+        </md-card-title>
+        <md-list ng-repeat="groups in groupList" ng-if="$index<3">
+            <md-list-item class="md-1-line">
+                <div class="md-list-item-text">
+                    <h2 style="font-size:100%;" align="left">{{groups.name}}</h2>
+                </div>
+                <md-divider ></md-divider>
+            </md-list-item>
+        </md-list>
+    </md-card>
+    <md-card ng-controller="coursesController as courses" class="col-md-4 col-md-push-2 col-xs-12 col-xs-push-3" flex="50" style="margin-top:5%; margin-bottom:4%;" md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
+        <md-card-title>
+            <md-card-title-text flex="60">
+                <span class="md-headline">My Courses</span>
+            </md-card-title-text>
+            <md-button href="#/courses" class="col-md-4 btn btn-default">See All</md-button>
+        </md-card-title>
+        <md-list ng-repeat="course in courseList" ng-if="$index<3">
+            <md-list-item class="md-1-line">
+                <div class="md-list-item-text">
+                    <h2 style="font-size:100%;" align="left">{{course.name}}</h2>
+                </div>
+                <md-divider ></md-divider>
+            </md-list-item>
+        </md-list>
+    </md-card>
+</div>
+
+
