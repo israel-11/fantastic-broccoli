@@ -114,7 +114,7 @@
 
    $scope.saveCourses = function(tempCourses) {
 
-   console.log(tempCourses);
+        console.log(tempCourses);
 
           for(i = 0; i < tempCourses; i++)
           {

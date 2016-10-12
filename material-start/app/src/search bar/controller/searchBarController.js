@@ -217,7 +217,8 @@ var self = this;
 
     self.newCourse = function(chip) {
       return {
-        Code: chip.Code
+        Code: chip.Code,
+        Title: chip.Title
       };
     };
 
@@ -226,7 +227,6 @@ var self = this;
     function removeChip(chip) {
 //        var data = JSON.parse($scope.tempCourses);
 //        var index = data.map(function(d) { return d['Code']; }).indexOf(chip.Code);
-        console.log($scope.tempCourses);
     }
 
   }
