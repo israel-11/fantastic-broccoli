@@ -131,6 +131,7 @@ var self = this;
     self.selectedItemChange = selectedItemChange;
     self.searchTextChange   = searchTextChange;
     self.removeChip = removeChip;
+    $scope.message = "";
 
     self.tempCourses=[];
 

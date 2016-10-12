@@ -606,3 +606,12 @@ md-switch ._md-bar {
     top: 0;
     position: absolute;
 }
+
+.layout-column {
+    background-color: white;
+
+}
+
+.chipsdemoContactChips md-content.autocomplete {
+  min-height: 0px;
+  }
