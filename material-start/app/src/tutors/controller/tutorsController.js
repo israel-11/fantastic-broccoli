@@ -4,9 +4,8 @@ var app = angular.module("users")
    $scope.availability = "Available";
    var arrowDownIcon = "fa fa-chevron-down";
    var arrowLeftIcon = "fa fa-chevron-left";
-   $scope.message = "Add as many courses as you like, then click \"Done\" when finished";
 
-   $scope.tutorCourseList=[
+   /*$scope.tutorCourseList=[
     {'code' : 'ICOM5016',
      'arrowIcon':arrowLeftIcon
     },
@@ -19,7 +18,7 @@ var app = angular.module("users")
     {'code' : 'ICOM4009',
      'arrowIcon':arrowLeftIcon
      }
-   ];
+   ];*/
 
 
 
@@ -45,11 +44,7 @@ var app = angular.module("users")
 
    }
 
-   $scope.removeCourse = function(course) {
-        var index = $scope.tutorCourseList.indexOf(course);
-        $scope.tutorCourseList.splice(index,1);
 
-   }
 
 
 });

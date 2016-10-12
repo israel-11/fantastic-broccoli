@@ -132,7 +132,7 @@ var self = this;
     self.searchTextChange   = searchTextChange;
     self.removeChip = removeChip;
 
-    $scope.tempCourses=[];
+    self.tempCourses=[];
 
     // ******************************
     // Internal methods
@@ -158,7 +158,7 @@ var self = this;
     }
 
     function selectedItemChange(item) {
-      console.log('Dimelo nelson, miralo aqui: '+ item.Code);
+      console.log(self.tempCourses);
 //      $scope.tempCourses.push(item);
     }
 
@@ -205,18 +205,6 @@ var self = this;
       };
 
     }
-    $scope.saveCourses = function(){
-//       var i;
-//       for(i = 0; i < $scope.tempCourses; i++)
-//       {
-//         var obj = JSON.parse($scope.courseList);
-//         obj.push({'code': $scope.tempCourses[i].Code, 'arrowIcon':arrowLeftIcon});
-//         $scope.courseList = JSON.stringify(obj);
-//
-//       }
-        console.log($rootScope);
-        $scope.courseList.push({'code': 'ICOM4444', 'arrowIcon': arrowLeftIcon});
-     }
 
     //Contact chips implementation
     self.readonly = false;

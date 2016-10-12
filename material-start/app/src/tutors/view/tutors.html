@@ -1,4 +1,4 @@
-<div ng-controller="tutorsController as tutors">
+<div ng-controller="UserController as users" >
     <md-content flex="80" flex-offset="10" style="overflow-x:hidden;">
         <h1>My Courses</h1>
         <md-divider></md-divider>
@@ -19,7 +19,7 @@
                     </md-switch>
                 </div>
                 <div style="float: right">
-                    <md-button ng-click="removeCourse(course)" class="md-raised md-primary">Remove</md-button>
+                    <md-button ng-click="users.removeCourse(course)" class="md-raised md-primary">Remove</md-button>
                 </div>
             </div>
         </md-list>
