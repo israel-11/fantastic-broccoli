@@ -19,33 +19,33 @@
             </md-card-actions>
         </md-card>
         <md-list-item layout="row">
-            <md-button layout="row" href="#/home" class="col-xs-12">
-                <p class="fa fa-home fa-lg" data-toggle="modal"></p>
-                <p flex="40" data-toggle="modal" data-target='#home'>Home</p>
+            <md-button layout="row" ng-click="route('/home')" class="col-xs-12">
+                <p flex="20" class="fa fa-home fa-lg" data-toggle="modal"></p>
+                <p flex="80" data-toggle="modal" data-target='#home'>Home</p>
             </md-button>
         </md-list-item>
         <md-list-item layout="row">
-            <md-button layout="row" href="#/courses" class="col-xs-12">
-                <p class="fa fa-book fa-lg" data-toggle="modal"></p>
-                <p flex="45" data-toggle="modal" data-target='#courses'>Courses</p>
+            <md-button layout="row" ng-click="route('/courses')" class="col-xs-12">
+                <p flex="20" class="fa fa-book fa-lg"  data-toggle="modal"></p>
+                <p flex="80" data-toggle="modal" data-target='#courses'>Courses</p>
             </md-button>
         </md-list-item>
         <md-list-item layout="row">
-            <md-button layout="row" href="#/groups" class="col-xs-12">
-                <p class="fa fa-users fa-lg" data-toggle="modal"></p>
-                <p flex="40" data-toggle="modal" data-target='#groups'>Groups</p>
+            <md-button layout="row" ng-click="route('/groups')" class="col-xs-12">
+                <p flex="20" class="fa fa-users fa-lg" data-toggle="modal"></p>
+                <p flex="80" data-toggle="modal" data-target='#groups'>Groups</p>
             </md-button>
         </md-list-item>
         <md-list-item layout="row">
-            <md-button layout="row" href="" class="col-xs-12">
-                <p class="fa fa-cog fa-lg" data-toggle="modal"></p>
-                <p flex="45" data-toggle="modal" data-target='#'>Settings</p>
+            <md-button layout="row" ng-click="" class="col-xs-12">
+                <p flex="20" class="fa fa-cog fa-lg" data-toggle="modal"></p>
+                <p flex="80" data-toggle="modal" data-target='#'>Settings</p>
             </md-button>
         </md-list-item>
         <md-list-item layout="row">
-            <md-button layout="row" href="#/login" class="col-xs-12">
-                <p class="fa fa-power-off fa-lg" data-toggle="modal"></p>
-                <p flex="45" data-toggle="modal" data-target="#login">Log Out</p>
+            <md-button layout="row" ng-click="route('/login')" class="col-xs-12">
+                <p flex="20" class="fa fa-power-off fa-lg" data-toggle="modal"></p>
+                <p flex="80" data-toggle="modal" data-target="#login">Log Out</p>
             </md-button>
         </md-list-item>
     </md-list>

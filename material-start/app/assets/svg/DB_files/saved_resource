@@ -71,7 +71,7 @@
                   <md-input-container class="md-icon-float md-block" style="margin-top: -2%;">
                       <label>Email</label>
                       <md-icon class="fa fa-envelope"></md-icon>
-                      <input ng-model="profile.email" type="text">
+                      <input ng-model="profle.email" type="text">
                   </md-input-container>
 
                   <h4 style="padding-left:5%;">Are you a tutor?</h4>
@@ -111,7 +111,7 @@
                       <label style="margin-top: -1%;" class="btn btn-info col-lg-4 col-md-4 col-lg-push-2 col-md-push-2 col-xs-6 col-xs-push-2" for="profileImage">Choose an Image</label>
                   </form>
 
-                  <searchbar ng-controller="searchBarCtrl"></searchbar>
+                  <searchbar ng-controller="ContactChipDemoCtrl"></searchbar>
 
               </div>
               <div class="modal-footer">
@@ -122,65 +122,40 @@
       </div>
   </div>
 
-  <!-- New Group Modal -->
-  <div ng-controller="submitController" class="modal fade" id="newGroupModal" role="dialog">
-      <div class="modal-dialog">
-          <!-- Modal content-->
-          <div class="modal-content">
-              <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-              </div>
-              <div class="modal-body col-xs-6" layout="column">
-                  <div class="modal-header">
-                      <h4 class="modal-title text-center">Create a group</h4>
-                  </div>
-                  <md-input-container class="md-icon-float md-block" style="margin-top: 5%;">
-                      <label>Name</label>
-                      <md-icon class="fa fa-users"></md-icon>
-                      <input ng-model="group.name" type="text">
-                  </md-input-container>
-                  <md-input-container class="md-icon-float md-block" style="margin-top: -2%;">
-                      <label>Capacity</label>
-                      <md-icon class="fa fa-users"></md-icon>
-                      <input ng-model="group.capacity" type="text">
-                  </md-input-container>
-                  <md-input-container class="md-icon-float md-block" style="margin-top: -2%;">
-                      <label>Course</label>
-                      <md-icon class="fa fa-list-alt"></md-icon>
-                      <input ng-model="group.course" type="text">
-                  </md-input-container>
-              </div>
-              <div class="modal-body col-xs-6" layout="column" ng-controller="groupController">
-                  <div class="modal-header">
-                      <h4 class="modal-title text-center">Join a group</h4>
-                  </div>
-                  <select ng-model="selectedCourse" ng-change="courseGroups(selectedCourse)">
-                      <option disabled selected value>Select a course</option>
-                      <option ng-repeat="course in courseList"> {{ course.code }}-{{ course.title }} </option>
-                  </select>
-                  <div style="min-height: 300px;">
-                      <md-list ng-repeat="item in items" ng-model="selectedCourse" ng-change="courseGroups(selectedCourse)">
-                          <md-list-item>
-                              <div class="md-list-item-text">
-                                  <md-checkbox ng-checked="exists(item, selected)" ng-click="toggle(item, selected)">
-                                      {{item.name}}
-                                  </md-checkbox>
-                              </div>
-                          </md-list-item>
-                      </md-list>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                  <md-button ng-click="submitGroup()" data-dismiss="modal" class="btn btn-success" style="float:left; margin-left:15%;">Create</md-button>
-                  <md-button ng-click="submitGroup()" data-dismiss="modal" class="btn btn-success" style="float:right; margin-right:15%;">Join</md-button>
-              </div>
-          </div>
-      </div>
-  </div>
 
 
-
-  </body>
+  <!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function() {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					head.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					head.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function(msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			console.log('Live reload enabled.');
+		})();
+	}
+	// ]]>
+</script>
+</body>
 
   <script src="../node_modules/angular/angular.js"></script>
   <script src="../node_modules/angular-animate/angular-animate.js"></script>
@@ -203,6 +178,7 @@
   <script src="src/search bar/controller/searchBarController.js"></script>
   <script src="src/search bar/directive/searchBarDirective.js"></script>
   <!-- nelsonBranch-->
+
 
   <script type="text/javascript">
 
