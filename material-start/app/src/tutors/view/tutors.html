@@ -1,6 +1,7 @@
-<div ng-controller="UserController as users" >
+<div ng-controller="UserController as users">
     <md-content flex="80" flex-offset="10" style="overflow-x:hidden;">
-        <h1>My Courses</h1>
+        <h1>My Tutoring Courses</h1>
+        <button ng-controller="searchBarCtrl" ng-click="test()" style="margin-top:-4%;" type="button" data-toggle="modal" data-target='#newCourseModal' class="btn btn-info col-xs-2 col-xs-push-10">Add more courses</button>
         <md-divider></md-divider>
         <md-list ng-repeat="course in tutorCourseList">
             <md-button ng-click="toggleCourse($index)" style="width:100%;" data-toggle="collapse" data-target="#{{course.code}}">
@@ -13,16 +14,17 @@
                 </md-list-item>
             </md-button>
             <div id="{{course.code}}" class="collapse" class="row">
-                <div style="float: left">
-                    <md-switch ng-model="availability" ng-true-value="'Available'" ng-false-value="'Unavailable'" aria-label="Available" style ="font-size:175%;" >
+                <div>
+                    <md-switch ng-model="availability" ng-true-value="'Available'" ng-false-value="'Unavailable'" class="col-xs-4 col-xs-push-1" aria-label="Available" style ="font-size:175%;" >
                        {{ availability }}
                     </md-switch>
                 </div>
-                <div style="float: right">
-                    <md-button ng-click="users.removeCourse(course)" class="md-raised md-primary">Remove</md-button>
+                <div >
+                    <md-button ng-click="users.deleteCourse(course)" data-target='#confirm-delete' data-toggle="modal" class="md-raised md-primary col-xs-push-6">Remove</md-button>
                 </div>
             </div>
         </md-list>
-        <button ng-controller="searchBarCtrl" ng-click="test()" style="margin-top:10%;" type="button" data-toggle="modal" data-target='#newCourseModal' class="btn btn-info col-xs-2 col-xs-push-10">Add more courses</button>
     </md-content>
 </div>
+
+

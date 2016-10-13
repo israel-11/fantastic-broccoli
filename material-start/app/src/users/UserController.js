@@ -94,6 +94,7 @@
    var arrowDownIcon = "fa fa-chevron-down";
    var arrowLeftIcon = "fa fa-chevron-left";
    $scope.availability = "Available";
+   self.deleteCourse = deleteCourse;
 
    self.removeCourse = removeCourse;
 
@@ -123,10 +124,9 @@
 
      }
 
-   function removeCourse(course) {
-           var index = $scope.tutorCourseList.indexOf(course);
-           console.log(index);
-           $scope.tutorCourseList.splice(index,1);
+   function removeCourse() {
+           $scope.tutorCourseList.splice(courseToDelete,1);
+           console.log($scope.tutorCourseList);
 
       }
 
@@ -139,7 +139,11 @@
        }
     }
 
-
+    function deleteCourse(course){
+        var index = $scope.tutorCourseList.indexOf(course);
+        courseToDelete = index;
+        console.log(courseToDelete);
+    }
 
 
 

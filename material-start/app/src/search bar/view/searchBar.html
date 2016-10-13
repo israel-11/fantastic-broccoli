@@ -2,7 +2,7 @@
 
     <md-content class="md-padding autocomplete" layout="column">
         <br>
-        <h2 ng-if="message.length>0" class="md-title">{{ message }}</h2>
+        <h2 ng-if="message.length>1" class="md-title">{{ message }}</h2>
         <md-chips ng-model="ctrl.tempCourses" readonly="ctrl.readonly" md-removable="ctrl.removable" md-transform-chip="ctrl.newCourse($chip)" md-require-match="true" md-on-remove="ctrl.removeChip($chip)">
             <md-autocomplete
                     ng-disabled="ctrl.isDisabled"
