@@ -572,7 +572,7 @@ $duration: 1.4s;
 
 /*Styling for switch in Tutors page - Nelson Alemar*/
 md-switch ._md-bar {
-    width:300%;
+    width:200%;
     height:100%;
     border-radius:50px;
 }
@@ -583,22 +583,23 @@ md-switch ._md-thumb-container {
 }
 
 md-switch ._md-container {
-    margin-right: 80px;
+    margin-right: 50px;
+    margin-left: 100px;
 }
 
 md-switch ._md-thumb {
     position: absolute;
     margin: 0;
-    top: -5px;
+    top: -3px;
     outline: none;
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
     border-radius: 100%;
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
 }
 
 md-switch.md-checked ._md-thumb-container {
-    transform: translate3d(500%, 0, 0);
+    transform: translate3d(300%, 0, 0);
 }
 
 md-switch ._md-bar {
