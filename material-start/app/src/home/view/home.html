@@ -1,0 +1,86 @@
+<div class="row" style="margin-top:5%;">
+    <div class="col-xs-6 col-xs-push-3" id="clockdiv">
+        <h2 style="margin-bottom:3%;color:rgb(33,150,243);">Countdown to DB Exam</h2>
+        <div>
+            <span class="days"><div id="day"></div></span>
+            <div class="smalltext">Days</div>
+        </div>
+        <div>
+            <span class="hours"><div id="hour"></div></span>
+            <div class="smalltext">Hours</div>
+        </div>
+        <div>
+            <span class="minutes"><div id="min"></div></span>
+            <div class="smalltext">Minutes</div>
+        </div>
+        <div>
+            <span class="seconds"><div id="sec"></div></span>
+            <div class="smalltext">Seconds</div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+  $("#day")
+  .countdown("2016/10/20", function(event) {
+    $(this).text(
+      event.strftime('%D')
+    );
+  });
+
+  $("#hour")
+  .countdown("2016/10/20", function(event) {
+    $(this).text(
+      event.strftime('%H')
+    );
+  });
+
+  $("#min")
+  .countdown("2016/10/20", function(event) {
+    $(this).text(
+      event.strftime('%M')
+    );
+  });
+
+  $("#sec")
+  .countdown("2016/10/20", function(event) {
+    $(this).text(
+      event.strftime('%S')
+    );
+  });
+</script>
+<div class="row">
+    <md-card ng-controller="groupController as group" class="col-md-4 col-md-push-2 col-xs-12 col-xs-push-3" flex="50" style="margin-top:5%; margin-bottom:4%;" md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
+        <md-card-title>
+            <md-card-title-text flex="60">
+                <span class="md-headline">My Groups</span>
+            </md-card-title-text>
+            <md-button href="#/groups" class="btn btn-default col-md-4">See All</md-button>
+        </md-card-title>
+        <md-list ng-repeat="groups in groupList" ng-if="$index<3">
+            <md-list-item class="md-1-line">
+                <div class="md-list-item-text">
+                    <h2 style="font-size:100%;" align="left">{{groups.name}}</h2>
+                </div>
+                <md-divider ></md-divider>
+            </md-list-item>
+        </md-list>
+    </md-card>
+    <md-card ng-controller="coursesController as courses" class="col-md-4 col-md-push-2 col-xs-12 col-xs-push-3" flex="50" style="margin-top:5%; margin-bottom:4%;" md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
+        <md-card-title>
+            <md-card-title-text flex="60">
+                <span class="md-headline">My Courses</span>
+            </md-card-title-text>
+            <md-button href="#/courses" class="col-md-4 btn btn-default">See All</md-button>
+        </md-card-title>
+        <md-list ng-repeat="course in courseList" ng-if="$index<3">
+            <md-list-item class="md-1-line">
+                <div class="md-list-item-text">
+                    <h2 style="font-size:100%;" align="left">{{course.name}}</h2>
+                </div>
+                <md-divider ></md-divider>
+            </md-list-item>
+        </md-list>
+    </md-card>
+</div>
+
+

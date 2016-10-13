@@ -4,7 +4,7 @@ var app = angular.module("users")
 
     $routeProvider.when('/home',
     {
-      templateUrl:    'home.html',
+      templateUrl:    'src/home/view/home.html',
       controller:     'HomeCtrl'
     });
     $routeProvider.when('/courses',
