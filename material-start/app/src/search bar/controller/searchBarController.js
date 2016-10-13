@@ -132,6 +132,7 @@ var self = this;
     self.searchTextChange   = searchTextChange;
     self.removeChip = removeChip;
     $scope.message = "";
+    $scope.placeholder="Ex: ICOM5016 - Databases";
 
     self.tempCourses=[];
 
@@ -160,6 +161,7 @@ var self = this;
 
     function selectedItemChange(item) {
       console.log(self.tempCourses);
+      $scope.placeholder = "";
 //      $scope.tempCourses.push(item);
     }
 
@@ -202,7 +204,7 @@ var self = this;
       var lowercaseQuery = angular.lowercase(query);
 
       return function filterFn(item) {
-        return (item.value.indexOf(lowercaseQuery) === 0);
+        return (item.value.indexOf(lowercaseQuery) != -1);
       };
 
     }
@@ -210,7 +212,6 @@ var self = this;
     //Contact chips implementation
     self.readonly = false;
 
-    // Lists of fruit names and Vegetable objects
     self.roCourseNames = angular.copy(self.repos);
     self.editableCourseNames = angular.copy(self.repos);
 
