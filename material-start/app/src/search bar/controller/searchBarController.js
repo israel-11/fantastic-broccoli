@@ -120,7 +120,7 @@
 //
 //  }
 
-function DemoCtrl ($timeout, $q, $log, $scope) {
+function DemoCtrl ($timeout, $q, $log, $scope, $rootScope) {
 var self = this;
 
     self.simulateQuery = false;
@@ -134,7 +134,7 @@ var self = this;
     $scope.message = "";
     $scope.placeholder="Ex: ICOM5016 - Databases";
 
-    self.tempCourses=[];
+    $rootScope.tempCourses=[];
 
     // ******************************
     // Internal methods
@@ -160,9 +160,9 @@ var self = this;
     }
 
     function selectedItemChange(item) {
-      console.log(self.tempCourses);
+      console.log($rootScope.tempCourses);
+
       $scope.placeholder = "";
-//      $scope.tempCourses.push(item);
     }
 
     /**
@@ -187,7 +187,7 @@ var self = this;
           'Title': 'Software Engineering'
         },
         {
-          'Code': 'MATE666',
+          'Code': 'MATE0666',
           'Title': 'Mate der Diablou'
         }
       ];
@@ -231,7 +231,15 @@ var self = this;
 //        var index = data.map(function(d) { return d['Code']; }).indexOf(chip.Code);
     }
 
+    $scope.deleteTemp = function() {
+
+            $rootScope.tempCourses=[];
+            $scope.placeholder="Ex: ICOM5016 - Databases";
+      }
+
   }
+
+
 
 
 

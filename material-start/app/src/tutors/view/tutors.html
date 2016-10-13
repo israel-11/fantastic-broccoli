@@ -1,7 +1,8 @@
 <div ng-controller="UserController as users">
     <md-content flex="80" flex-offset="10" style="overflow-x:hidden;">
+        <br>
         <h1>My Tutoring Courses</h1>
-        <button ng-controller="searchBarCtrl" ng-click="test()" style="margin-top:-4%;" type="button" data-toggle="modal" data-target='#newCourseModal' class="btn btn-info col-xs-2 col-xs-push-10">Add more courses</button>
+        <button ng-controller="searchBarCtrl" ng-click="test()" style="margin-top:-4%; background-color: rgb(33,150,243);" type="button" data-toggle="modal" data-target='#newCourseModal' class="btn btn-info col-xs-2 col-xs-push-10">Add more courses</button>
         <md-divider></md-divider>
         <md-list ng-repeat="course in tutorCourseList">
             <md-button ng-click="toggleCourse($index)" style="width:100%;" data-toggle="collapse" data-target="#{{course.code}}">
@@ -19,8 +20,8 @@
                        {{ availability }}
                     </md-switch>
                 </div>
-                <div >
-                    <md-button ng-click="users.deleteCourse(course)" data-target='#confirm-delete' data-toggle="modal" class="md-raised md-primary col-xs-push-6">Remove</md-button>
+                <div style="float: right">
+                    <md-button ng-click="users.deleteCourse(course)" data-target='#confirm-delete' data-toggle="modal" class="md-raised md-primary">Remove</md-button>
                 </div>
             </div>
         </md-list>

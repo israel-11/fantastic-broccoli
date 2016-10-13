@@ -76,7 +76,7 @@
 
   <!--Add New Courses Modal-->
 
-  <div ng-controller="searchBarCtrl as ctrl" class="modal fade" id="newCourseModal" role="dialog">
+  <div ng-controller="searchBarCtrl as ctrl" style="margin-top: 25%" class="modal fade" id="newCourseModal" role="dialog">
       <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
@@ -88,14 +88,16 @@
                   <searchbar></searchbar>
               </div>
               <div ng-controller="UserController" class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                  <button ng-click="saveCourses(ctrl.tempCourses)" data-dismiss="modal" class="btn btn-success">Done</button>
+                  <button ng-click="deleteTemp()" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                  <button ng-click="saveCourses(tempCourses)" data-dismiss="modal" class="btn btn-success">Done</button>
               </div>
           </div>
       </div>
   </div>
 
-  <div ng-controller="UserController as users" class="modal fade" id="confirm-delete" role="dialog">
+  <!--Confirmation of tutor course deletion modal-->
+
+  <div ng-controller="UserController as users" style="margin-top: 25%" class="modal fade" id="confirm-delete" role="dialog">
       <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">

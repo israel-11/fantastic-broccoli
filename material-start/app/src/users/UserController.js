@@ -13,7 +13,7 @@
    * @param avatarsService
    * @constructor
    */
-  function UserController( userService, $mdSidenav, $mdBottomSheet, $timeout, $log, $scope, $mdDialog ) {
+  function UserController( userService, $mdSidenav, $mdBottomSheet, $timeout, $log, $scope, $mdDialog) {
     var self = this;
     self.selected     = null;
     self.users        = [ ];
@@ -117,10 +117,14 @@
 
         console.log(tempCourses);
 
-          for(i = 0; i < tempCourses; i++)
-          {
-            console.log(tempCourses);
-          }
+        while(tempCourses.length > 0)
+        {
+           $scope.tutorCourseList.push({'code': tempCourses[0], 'arrowIcon': arrowLeftIcon});
+           tempCourses.splice(0,1);
+        }
+
+        console.log(tempCourses);
+        console.log($scope.tutorCourseList);
 
      }
 
