@@ -149,6 +149,25 @@
         console.log(courseToDelete);
     }
 
+    $scope.showConfirm = function(ev, course) {
+        // Appending dialog to document.body to cover sidenav in docs app
+        var confirm = $mdDialog.confirm()
+              .title('Are you sure you want to delete this course?')
+              .textContent('You can re-add the course later on.')
+              .ariaLabel('Lucky day')
+              .targetEvent(ev)
+              .ok('Yes')
+              .cancel('Cancel');
+
+        $mdDialog.show(confirm).then(function() {
+          $scope.status = 'You decided to get rid of your debt.';
+          deleteCourse(course);
+          removeCourse();
+        }, function() {
+          $scope.status = 'You decided to keep your debt.';
+        });
+      };
+
 
 
 
