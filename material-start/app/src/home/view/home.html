@@ -18,7 +18,7 @@
             <div class="smalltext">Seconds</div>
         </div>
     </div>
-    <div ng-if="!showCalendar&&!showName" ng-click="setCalendar()" style="margin-top:11%;margin-left:-18%" class="col-xs-4 col-xs-push-2">
+    <div ng-if="!showCalendar&&!showName" ng-click="setCalendar()" style="margin-top:8%;margin-left:-16%" class="col-xs-4 col-xs-push-3">
         <i style="font-size: 3em;" class="fa fa-circle-thin fa-stack-2x"></i>
         <i style="line-height: 38px;font-size: 1.5em;" class="fa fa-pencil fa-stack-1x"></i>
     </div>
@@ -70,13 +70,13 @@
     );
   });
 </script>
-<div class="row">
-    <md-card ng-controller="groupController as group" class="col-md-4 col-md-push-2 col-xs-12 col-xs-push-3" flex="50" style="margin-top:5%; margin-bottom:4%;" md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
+<md-content layout="row">
+    <md-card ng-controller="groupController as group" flex="40" flex-offset="10" style="margin-top:5%; margin-bottom:4%;" md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
         <md-card-title>
             <md-card-title-text flex="60">
                 <span class="md-headline">My Groups</span>
             </md-card-title-text>
-            <md-button href="#/groups" class="btn btn-default col-md-4">See All</md-button>
+            <md-button flex="40" ng-click="route('/groups')" class="btn btn-default">See All</md-button>
         </md-card-title>
         <md-list ng-repeat="groups in groupList" ng-if="$index<3">
             <md-list-item class="md-1-line">
@@ -87,12 +87,12 @@
             </md-list-item>
         </md-list>
     </md-card>
-    <md-card ng-controller="coursesController as courses" class="col-md-4 col-md-push-2 col-xs-12 col-xs-push-3" flex="50" style="margin-top:5%; margin-bottom:4%;" md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
+    <md-card ng-controller="coursesController as courses" flex="40" style="margin-top:5%; margin-bottom:4%;" md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
         <md-card-title>
             <md-card-title-text flex="60">
                 <span class="md-headline">My Courses</span>
             </md-card-title-text>
-            <md-button href="#/courses" class="col-md-4 btn btn-default">See All</md-button>
+            <md-button flex="40" ng-click="route('/groups')" class="btn btn-default">See All</md-button>
         </md-card-title>
         <md-list ng-repeat="course in courseList" ng-if="$index<3">
             <md-list-item class="md-1-line">
@@ -103,6 +103,6 @@
             </md-list-item>
         </md-list>
     </md-card>
-</div>
+</md-content>
 
 

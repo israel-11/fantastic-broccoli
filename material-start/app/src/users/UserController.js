@@ -28,6 +28,7 @@
     $scope.userSettings;
     $scope.userSettings={
             'name':'Manuel',
+            'status':'El ser humano es vago por naturaleza',
             'lastName':$scope.lastName,
             'image' : 'coger path'
             }
@@ -43,8 +44,10 @@
 
     // Load registered user
     $scope.submitInfo = function(){
+        console.log($scope.name);
         $scope.userSettings={
         'name':$scope.name,
+        'status':$scope.status,
         'lastName':$scope.lastName,
         'image' : 'coger path'
         }
@@ -219,9 +222,6 @@
         courseToDelete = index;
         console.log(courseToDelete);
     }
-<<<<<<< HEAD
-=======
-
     $scope.showConfirm = function(ev, course) {
         // Appending dialog to document.body to cover sidenav in docs app
         var confirm = $mdDialog.confirm()
@@ -241,12 +241,6 @@
         });
       };
 
-
-
-
-
-
->>>>>>> 55ead8795241b7f8bcc8b41e79106d79acf3553f
   }
 
 })();
