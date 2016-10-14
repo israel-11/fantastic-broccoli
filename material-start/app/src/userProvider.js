@@ -31,6 +31,11 @@ var app = angular.module("users")
           templateUrl:    'src/tutors/view/tutors.html',
           controller:     'TutorsCtrl'
     });
+    $routeProvider.when('/settings',
+    {
+          templateUrl:    'src/settings/view/settings.html',
+          controller:     'SettingsCtrl'
+    });
     $routeProvider.otherwise(
     {
       redirectTo:     '/login',
@@ -67,5 +72,9 @@ app.controller('TutorsCtrl', function($scope, $compile) {
 });
 
 app.controller('HomeCtrl', function($scope, $compile) {
+
+});
+
+app.controller('SettingsCtrl', function($scope, $compile) {
 
 });

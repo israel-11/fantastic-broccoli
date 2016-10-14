@@ -120,7 +120,7 @@
 //
 //  }
 
-function DemoCtrl ($timeout, $q, $log, $scope) {
+function DemoCtrl ($timeout, $q, $log, $scope, $rootScope) {
 var self = this;
 
     self.simulateQuery = false;
@@ -131,8 +131,10 @@ var self = this;
     self.selectedItemChange = selectedItemChange;
     self.searchTextChange   = searchTextChange;
     self.removeChip = removeChip;
+    $scope.message = "";
+    $scope.placeholder="Ex: ICOM5016 - Databases";
 
-    self.tempCourses=[];
+    $rootScope.tempCourses=[];
 
     // ******************************
     // Internal methods
@@ -158,8 +160,9 @@ var self = this;
     }
 
     function selectedItemChange(item) {
-      console.log(self.tempCourses);
-//      $scope.tempCourses.push(item);
+      console.log($rootScope.tempCourses);
+
+      $scope.placeholder = "";
     }
 
     /**
@@ -184,7 +187,7 @@ var self = this;
           'Title': 'Software Engineering'
         },
         {
-          'Code': 'MATE666',
+          'Code': 'MATE0666',
           'Title': 'Mate der Diablou'
         }
       ];
@@ -201,7 +204,7 @@ var self = this;
       var lowercaseQuery = angular.lowercase(query);
 
       return function filterFn(item) {
-        return (item.value.indexOf(lowercaseQuery) === 0);
+        return (item.value.indexOf(lowercaseQuery) != -1);
       };
 
     }
@@ -209,7 +212,6 @@ var self = this;
     //Contact chips implementation
     self.readonly = false;
 
-    // Lists of fruit names and Vegetable objects
     self.roCourseNames = angular.copy(self.repos);
     self.editableCourseNames = angular.copy(self.repos);
 
@@ -217,7 +219,8 @@ var self = this;
 
     self.newCourse = function(chip) {
       return {
-        Code: chip.Code
+        Code: chip.Code,
+        Title: chip.Title
       };
     };
 
@@ -226,10 +229,17 @@ var self = this;
     function removeChip(chip) {
 //        var data = JSON.parse($scope.tempCourses);
 //        var index = data.map(function(d) { return d['Code']; }).indexOf(chip.Code);
-        console.log($scope.tempCourses);
     }
 
+    $scope.deleteTemp = function() {
+
+            $rootScope.tempCourses=[];
+            $scope.placeholder="Ex: ICOM5016 - Databases";
+      }
+
   }
+
+
 
 
 

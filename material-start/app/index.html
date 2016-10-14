@@ -31,12 +31,12 @@
     </style>
   </head>
 
-  <body ng-app="myApp" layout="column" ng-controller="UserController as user" ng-cloak>
+  <body style="overflow-x:hidden;" ng-app="myApp" layout="column" ng-controller="UserController as user" ng-cloak>
   <navbar ng-if="user.loggedIn"></navbar>
     <div flex layout="row">
       <left-sidebar></left-sidebar>
 
-      <md-content style="position:relative;" flex="100" id="main-content">
+      <md-content style="position:relative; overflow-x:hidden;" flex="100" id="main-content">
         <div ng-view> </div>
 
       </md-content>
@@ -44,32 +44,32 @@
     </div>
 
   <!-- First Time User Log In Modal -->
-  <div ng-controller="submitController" class="modal fade" id="loginModal" role="dialog">
+  <div class="modal fade" id="loginModal" role="dialog">
       <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
               <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title text-center">Hi {{profile.name}}, Welcome to #YoNoMeCuelgo</h4>
+                  <h4 class="modal-title text-center">Hi {{name}} {{lastName}}, Welcome to #YoNoMeCuelgo</h4>
               </div>
               <div class="modal-body" layout="column">
                   <div layout="row">
                       <md-input-container flex="40" class="md-icon-float md-block">
                           <label>Name</label>
                           <md-icon class="fa fa-user"></md-icon>
-                          <input ng-model="profile.name" type="text">
+                          <input ng-model="name" type="text">
                       </md-input-container>
 
                       <md-input-container flex-offset="10" flex="50" class="md-icon-float md-block">
                           <label>Last Name</label>
-                          <input ng-model="profile.lastName" type="text">
+                          <input ng-model="lastName" type="text">
                       </md-input-container>
                   </div>
 
                   <md-input-container class="md-icon-float md-block" style="margin-top: -2%;">
                       <label>Email</label>
                       <md-icon class="fa fa-envelope"></md-icon>
-                      <input ng-model="profile.email" type="text">
+                      <input ng-model="email" type="text">
                   </md-input-container>
 
                   <h4 style="padding-left:5%;">Are you a tutor?</h4>
@@ -78,6 +78,9 @@
                           {{tutor}}
                       </md-switch>
                   </div>
+
+                  <h4 class="text-center">Select Your Courses</h4>
+                  <searchbar ng-controller="searchBarCtrl"></searchbar>
 
                   <h4 style="padding-left:5%;">Profile Image</h4>
 
@@ -100,7 +103,7 @@
                   </script>
 
                   <div class="col-md-4 col-push-4" style="margin-top: 10px; padding-left:10%;">
-                      <img id="profile_pic" src="#" alt="your image" align="middle"/>
+                      <img id="profile_pic" src="" align="middle"/>
                   </div>
 
                   <form class="row" id="form2" runat="server">
@@ -108,9 +111,6 @@
                       <div style="color:gray;" class="col-lg-4 col-md-4 col-lg-push-1 col-md-push-1" id="profileFeedback">Select .jpg format image.</div>
                       <label style="margin-top: -1%;" class="btn btn-info col-lg-4 col-md-4 col-lg-push-2 col-md-push-2 col-xs-6 col-xs-push-2" for="profileImage">Choose an Image</label>
                   </form>
-
-                  <searchbar ng-controller="searchBarCtrl"></searchbar>
-
               </div>
               <div class="modal-footer">
                   <md-button class="btn btn-default" data-dismiss="modal">Close</md-button>
@@ -207,11 +207,11 @@
                   </dl>
 
                   <ul class="social">
-                      <li><a class="fa fa-phone" href="">Phone</a></li>
-                      <li><a class="fa fa-envelope" href="">Gmail</a></li>
-                      <li><a class="fa fa-facebook" href="">Facebook</a></li>
-                      <li><a class="fa fa-twitter" href="">Twitter</a></li>
-                      <li><a class="fa fa-linkedin" href="">LinkedIn</a></li>
+                      <li><a class="fa fa-phone" title="787-518-1788">Phone</a></li>
+                      <li><a class="fa fa-envelope" title="eltutorazo@gmail.com">Gmail</a></li>
+                      <li><a class="fa fa-facebook" href="https://www.facebook.com/nelson.alemar">Facebook</a></li>
+                      <li><a class="fa fa-twitter" href="https://twitter.com/Anuel_2bleA">Twitter</a></li>
+                      <li><a class="fa fa-linkedin" href="https://pr.linkedin.com/in/nelson-alemar-alonso-081553117/en">LinkedIn</a></li>
                   </ul>
 
               </div>
@@ -273,7 +273,7 @@
   </div>
   <!--Add New Courses Modal-->
 
-  <div ng-controller="searchBarCtrl as ctrl" class="modal fade" id="newCourseModal" role="dialog">
+  <div ng-controller="searchBarCtrl as ctrl" style="margin-top: 25%" class="modal fade" id="newCourseModal" role="dialog">
       <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
@@ -285,13 +285,43 @@
                   <searchbar></searchbar>
               </div>
               <div ng-controller="UserController" class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                  <button ng-click="saveCourses(ctrl.tempCourses)" data-dismiss="modal" class="btn btn-success">Done</button>
+                  <button ng-click="deleteTemp()" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                  <button ng-click="saveCourses(tempCourses)" data-dismiss="modal" class="btn btn-success">Done</button>
               </div>
           </div>
       </div>
   </div>
 
+  <!--Confirmation of tutor course deletion modal-->
+<<<<<<< HEAD
+  <div ng-controller="UserController as users" style="margin-top: 25%" class="modal fade" id="confirm-delete" role="dialog">
+=======
+
+  <!--<div ng-controller="UserController as users" style="margin-top: 25%" class="modal fade" id="confirm-delete" role="dialog">
+>>>>>>> 55ead8795241b7f8bcc8b41e79106d79acf3553f
+      <div class="modal-dialog">
+          &lt;!&ndash; Modal content&ndash;&gt;
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h3 class="modal-title text-center">Are you sure you want to delete this course?</h3>
+              </div>
+              <div ng-controller="UserController" class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                  <button ng-click="users.removeCourse()" data-dismiss="modal" class="btn btn-success">Yes</button>
+              </div>
+          </div>
+      </div>
+<<<<<<< HEAD
+  </div>
+=======
+  </div>-->
+
+
+
+
+
+>>>>>>> 55ead8795241b7f8bcc8b41e79106d79acf3553f
   </body>
 
   <script src="../node_modules/angular/angular.js"></script>
