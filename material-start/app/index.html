@@ -31,12 +31,12 @@
     </style>
   </head>
 
-  <body ng-app="myApp" layout="column" ng-controller="UserController as user" ng-cloak>
-  <navbar></navbar>
+  <body style="overflow-x:hidden;" ng-app="myApp" layout="column" ng-controller="UserController as user" ng-cloak>
+  <navbar ng-if="user.loggedIn"></navbar>
     <div flex layout="row">
       <left-sidebar></left-sidebar>
 
-      <md-content style="position:relative;" flex="100" id="main-content">
+      <md-content style="position:relative; overflow-x:hidden;" flex="100" id="main-content">
         <div ng-view> </div>
 
       </md-content>
@@ -44,36 +44,233 @@
     </div>
 
   <!-- First Time User Log In Modal -->
-  <div ng-controller="submitController" class="modal fade" id="loginModal" role="dialog">
+  <div class="modal fade" id="loginModal" role="dialog">
       <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
               <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h3 class="modal-title text-center">Hi {{name}} {{lastName}}, Welcome to #YoNoMeCuelgo</h3>
+                  <h4 class="modal-title text-center">Hi {{name}} {{lastName}}, Welcome to #YoNoMeCuelgo</h4>
               </div>
-              <div class="modal-body">
-                  <md-input-container class="md-icon-float md-block">
-                      <label>Name</label>
-                      <md-icon class="fa fa-user"></md-icon>
-                      <input ng-model="name" type="text">
+              <div class="modal-body" layout="column">
+                  <div layout="row">
+                      <md-input-container flex="40" class="md-icon-float md-block">
+                          <label>Name</label>
+                          <md-icon class="fa fa-user"></md-icon>
+                          <input ng-model="name" type="text">
+                      </md-input-container>
+
+                      <md-input-container flex-offset="10" flex="50" class="md-icon-float md-block">
+                          <label>Last Name</label>
+                          <input ng-model="lastName" type="text">
+                      </md-input-container>
+                  </div>
+
+                  <md-input-container class="md-icon-float md-block" style="margin-top: -2%;">
+                      <label>Email</label>
+                      <md-icon class="fa fa-envelope"></md-icon>
+                      <input ng-model="email" type="text">
                   </md-input-container>
-                  <h4 style="padding-left:5%;">Profile Image</h4>
-                  <form class="row" id="form2" runat="server">
-                      <input style="visibility:hidden;" type="file" name="file" id="profileImage" />
-                      <div style="color:gray;" class="col-lg-4 col-md-4 col-lg-push-1 col-md-push-1" id="profileFeedback">Select a .jpg format image.</div>
-                      <label style="margin-top: -1%;" class="btn btn-info col-lg-4 col-md-4 col-lg-push-2 col-md-push-2" for="profileImage">Choose an Image</label>
-                  </form>
+
+                  <h4 style="padding-left:5%;">Are you a tutor?</h4>
+                  <div flex-gt-sm="50" style="margin-left: 1%">
+                      <md-switch class="md-primary" ng-model="tutor" aria-label="Switch 1" ng-true-value="'Yes'" ng-false-value="'No'" style="margin-left: 4%; width: 80px;">
+                          {{tutor}}
+                      </md-switch>
+                  </div>
+
+                  <h4 class="text-center">Select Your Courses</h4>
                   <searchbar ng-controller="searchBarCtrl"></searchbar>
+
+                  <h4 style="padding-left:5%;">Profile Image</h4>
+
+                  <script>
+                      function readURL(input) {
+                        if (input.files && input.files[0]) {
+                          var reader = new FileReader();
+
+                          reader.onload = function (e) {
+                            $('#profile_pic')
+                                .attr('src', e.target.result)
+                                .width(100)
+                                .height(100);
+
+                          };
+
+                          reader.readAsDataURL(input.files[0]);
+                        }
+                      }
+                  </script>
+
+                  <div class="col-md-4 col-push-4" style="margin-top: 10px; padding-left:10%;">
+                      <img id="profile_pic" src="" align="middle"/>
+                  </div>
+
+                  <form class="row" id="form2" runat="server">
+                      <input style="visibility:hidden;" type="file" name="file" id="profileImage" onchange="readURL(this);"/>
+                      <div style="color:gray;" class="col-lg-4 col-md-4 col-lg-push-1 col-md-push-1" id="profileFeedback">Select .jpg format image.</div>
+                      <label style="margin-top: -1%;" class="btn btn-info col-lg-4 col-md-4 col-lg-push-2 col-md-push-2 col-xs-6 col-xs-push-2" for="profileImage">Choose an Image</label>
+                  </form>
               </div>
               <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button ng-click="submitInfo()" data-dismiss="modal" class="btn btn-success">Submit</button>
+                  <md-button class="btn btn-default" data-dismiss="modal">Close</md-button>
+                  <md-button ng-click="submitInfo()" data-dismiss="modal" class="btn btn-success">Submit</md-button>
               </div>
           </div>
       </div>
   </div>
 
+  <!-- New Group Modal -->
+  <div ng-controller="groupController" class="modal fade" id="newGroupModal" role="dialog">
+      <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body col-xs-6" layout="column">
+                  <div class="modal-header">
+                      <h4 class="modal-title text-center">Create a group</h4>
+                  </div>
+                  <md-input-container class="md-icon-float md-block" style="margin-top: 5%;">
+                      <label>Name</label>
+                      <md-icon class="fa fa-users"></md-icon>
+                      <input ng-model="group.name" type="text">
+                  </md-input-container>
+                  <md-input-container class="md-icon-float md-block" style="margin-top: -2%;">
+                      <label>Capacity</label>
+                      <md-icon class="fa fa-users"></md-icon>
+                      <input ng-model="group.capacity" type="text">
+                  </md-input-container>
+                  <md-input-container class="md-icon-float md-block" style="margin-top: -2%;">
+                      <label>Course</label>
+                      <md-icon class="fa fa-list-alt"></md-icon>
+                      <input ng-model="group.course" type="text">
+                  </md-input-container>
+              </div>
+              <div class="modal-body col-xs-6" layout="column" ng-controller="groupController">
+                  <div class="modal-header">
+                      <h4 class="modal-title text-center">Join a group</h4>
+                  </div>
+                  <select class="form-control" ng-model="selectedCourse" ng-change="courseGroups(selectedCourse)">
+                      <option disabled selected value>Select a course</option>
+                      <option ng-repeat="course in courseList"> {{ course.code }}-{{ course.title }} </option>
+                  </select>
+                  <div style="min-height: 300px;">
+                      <md-list ng-repeat="item in items" ng-model="selectedCourse" ng-change="courseGroups(selectedCourse)">
+                          <md-list-item>
+                              <div class="md-list-item-text">
+                                  <md-checkbox ng-checked="exists(item, list)" ng-click="toggle(item, list)">
+                                      {{item.name}}
+                                  </md-checkbox>
+                              </div>
+                          </md-list-item>
+                      </md-list>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <md-button ng-click="submitGroup()" data-dismiss="modal" class="btn btn-success" style="float:left; margin-left:15%;">Create</md-button>
+                  <md-button ng-click="joinGroup()" data-dismiss="modal" class="btn btn-success" style="float:right; margin-right:15%;">Join</md-button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  <!-- Tutor Profile Modal -->
+  <div class="modal fade" id="tutor-profile-modal" role="dialog">
+      <div class="modal-dialog">
+         <div class="modal-body">
+          <section style="margin-top:33%;" class="card">
+              <figure class="panel meta">
+                  <picture>
+                      <img class="avatar" src="http://www.elgenero.com/images/anuel.jpg" width="128" height="128"/>
+                      <img class="company-logo" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/67516/b-01.png" alt="BigglesCodes" width="40" height="40"/>
+                  </picture>
+                  <figcaption>
+
+                      <h1 class="name">Nelson Triple A</h1>
+                      <h3 class="title">El Tutorazo</h3>
+                  </figcaption>
+              </figure>
+
+              <div class="panel info">
+                  <dl class="skillz">
+                      <dt>ICOM4009</dt>
+                      <dd>98</dd>
+                      <dt>ICOM5016</dt>
+                      <dd>86</dd>
+                      <dt>ICOM4035</dt>
+                      <dd>28</dd>
+                      <dt>ICOM4075</dt>
+                      <dd>32</dd>
+                  </dl>
+
+                  <ul class="social">
+                      <li><a class="fa fa-phone" title="787-518-1788">Phone</a></li>
+                      <li><a class="fa fa-envelope" title="eltutorazo@gmail.com">Gmail</a></li>
+                      <li><a class="fa fa-facebook" href="https://www.facebook.com/nelson.alemar">Facebook</a></li>
+                      <li><a class="fa fa-twitter" href="https://twitter.com/Anuel_2bleA">Twitter</a></li>
+                      <li><a class="fa fa-linkedin" href="https://pr.linkedin.com/in/nelson-alemar-alonso-081553117/en">LinkedIn</a></li>
+                  </ul>
+
+              </div>
+
+          </section></div>
+          <!--&lt;!&ndash; Modal content&ndash;&gt;-->
+          <script>
+              $('.info dd').each(function() {  $(this).css({width: $(this).text()+'%'});});
+          </script>
+          <link rel="stylesheet" href="assets/tutors.css"/>
+          <!--<div class="modal-content">-->
+              <!--<div class="modal-header">-->
+                  <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                  <!--<h3 class="modal-title text-center">Tutor Profile</h3>-->
+              <!--</div>-->
+              <!--<div class="modal-body">-->
+                  <!--<section class="card">-->
+                      <!--<figure class="panel meta">-->
+                          <!--<picture>-->
+                              <!--<img class="avatar" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/67516/Screen_Shot_2015-11-18_at_11.47.23_AM.png" width="128" height="128"/>-->
+                              <!--<img class="company-logo" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/67516/b-01.png" alt="BigglesCodes" width="40" height="40"/>-->
+                          <!--</picture>-->
+                          <!--<figcaption>-->
+
+                              <!--<h1 class="name">Biggles</h1>-->
+                              <!--<h3 class="title">Angry Unicorn</h3>-->
+                          <!--</figcaption>-->
+                      <!--</figure>-->
+
+                      <!--<div class="panel info">-->
+                          <!--<dl class="skillz">-->
+                              <!--<dt>CSS</dt>-->
+                              <!--<dd>98</dd>-->
+                              <!--<dt>Javascript</dt>-->
+                              <!--<dd>86</dd>-->
+                              <!--<dt>PHP</dt>-->
+                              <!--<dd>28</dd>-->
+                              <!--<dt>Ruby</dt>-->
+                              <!--<dd>32</dd>-->
+                          <!--</dl>-->
+
+                          <!--<ul class="social">-->
+                              <!--<li><a class="icon-social-twitter" href="https://twitter.com/bigglesrocks">Twitter</a></li>-->
+                              <!--<li><a class="icon-social-github" href="https://github.com/jlegosama">Github</a></li>-->
+                              <!--<li><a class="icon-social-stack-overflow" href="http://stackoverflow.com/users/664904/jlego">StackOverflow</a></li>-->
+                              <!--<li><a class="icon-social-dribbble" href="https://dribbble.com/biggles">Dribbble</a></li>-->
+                              <!--<li><a class="icon-social-medium" href="#">Medium</a></li>-->
+                          <!--</ul>-->
+
+                      <!--</div>-->
+
+                  <!--</section>-->
+              <!--</div>-->
+              <!--<div class="modal-footer">-->
+                  <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+              <!--</div>-->
+          <!--</div>-->
+      </div>
+  </div>
   <!--Add New Courses Modal-->
 
   <!--<div ng-controller="searchBarCtrl as ctrl" style="margin-top: 25%" class="modal fade" id="newCourseModal" role="dialog">
@@ -96,8 +293,12 @@
   </div>-->
 
   <!--Confirmation of tutor course deletion modal-->
+<<<<<<< HEAD
+  <div ng-controller="UserController as users" style="margin-top: 25%" class="modal fade" id="confirm-delete" role="dialog">
+=======
 
   <!--<div ng-controller="UserController as users" style="margin-top: 25%" class="modal fade" id="confirm-delete" role="dialog">
+>>>>>>> 55ead8795241b7f8bcc8b41e79106d79acf3553f
       <div class="modal-dialog">
           &lt;!&ndash; Modal content&ndash;&gt;
           <div class="modal-content">
@@ -111,12 +312,16 @@
               </div>
           </div>
       </div>
+<<<<<<< HEAD
+  </div>
+=======
   </div>-->
 
 
 
 
 
+>>>>>>> 55ead8795241b7f8bcc8b41e79106d79acf3553f
   </body>
 
   <script src="../node_modules/angular/angular.js"></script>
@@ -132,17 +337,14 @@
   <script src="./src/navBarDirective.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="src/login/submitController.js"></script>
-  <script src="../node_modules/angular-messages/angular-messages.min.js"></script>
-  <script src="http://ngmaterial.assets.s3.amazonaws.com/svg-assets-cache.js"></script>
-
-
   <script src="src/courses/controller/coursesController.js"></script>
-
   <script src="src/search bar/controller/searchBarController.js"></script>
   <script src="src/search bar/directive/searchBarDirective.js"></script>
-
+  <script src="src/groups/controller/groupController.js"></script>
+  <script src="bower_components/jquery.countdown/dist/jquery.countdown.js"></script>
+  <script src="../node_modules/angular-messages/angular-messages.min.js"></script>
+  <script src="http://ngmaterial.assets.s3.amazonaws.com/svg-assets-cache.js"></script>
   <script src = "src/tutors/controller/tutorsController.js"></script>
-
   <script type="text/javascript">
 
           angular

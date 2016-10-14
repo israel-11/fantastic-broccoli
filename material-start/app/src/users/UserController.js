@@ -3,7 +3,7 @@
   angular
        .module('users')
        .controller('UserController', [
-          'userService', '$mdSidenav', '$mdBottomSheet', '$timeout', '$log', '$scope','$mdDialog',
+          'userService', '$mdSidenav', '$mdBottomSheet', '$timeout', '$log', '$scope','$mdDialog','$location',
           UserController
        ]);
   /**
@@ -13,20 +13,95 @@
    * @param avatarsService
    * @constructor
    */
-  function UserController( userService, $mdSidenav, $mdBottomSheet, $timeout, $log, $scope, $mdDialog) {
+  function UserController( userService, $mdSidenav, $mdBottomSheet, $timeout, $log, $scope, $mdDialog, $location, $rootScope ) {
     var self = this;
+    self.loggedIn = false;
     self.selected     = null;
     self.users        = [ ];
     self.selectUser   = selectUser;
     self.toggleList   = toggleUsersList;
     self.makeContact  = makeContact;
+    $scope.myDate='';
+    $scope.countdown='DB Exam';
+    $scope.showCalendar=false;
+    $scope.showName=false;
+    $scope.userSettings;
+    $scope.userSettings={
+            'name':'Manuel',
+            'lastName':$scope.lastName,
+            'image' : 'coger path'
+            }
+    self.courseList=[];
+
+    $scope.setCalendar = function(){
+        $scope.showCalendar = true;
+    }
+
+    $scope.saveCountdown = function(){
+        $scope.showName = false;
+    }
 
     // Load registered user
-    $scope.userSettings=
-        {'name' : 'Manuel'
-        };
+    $scope.submitInfo = function(){
+        $scope.userSettings={
+        'name':$scope.name,
+        'lastName':$scope.lastName,
+        'image' : 'coger path'
+        }
+        console.log($scope.courseList);
+        self.loggedIn=true;
+        $scope.route('/home');
+    }
+
+    $scope.setDate = function(date){
+        $scope.showCalendar=false;
+
+        $scope.showName = true;
+        //Format: Mon Oct 03 2016 00:00:00 GMT-0400 (AST)
+        var month = date.getMonth()+1;
+        var day = date.getDate();
+        var year = date.getFullYear();
+        var date = year.toString()+'/'+month.toString()+'/'+day.toString();
+
+        $("#day")
+          .countdown(date, function(event) {
+            $(this).text(
+              event.strftime('%D')
+            );
+          });
+
+          $("#hour")
+          .countdown(date, function(event) {
+            $(this).text(
+              event.strftime('%H')
+            );
+          });
+
+          $("#min")
+          .countdown(date, function(event) {
+            $(this).text(
+              event.strftime('%M')
+            );
+          });
+
+          $("#sec")
+          .countdown(date, function(event) {
+            $(this).text(
+              event.strftime('%S')
+            );
+          });
+
+    }
 
 
+    $scope.route = function(path){
+        $location.path(path);
+    }
+
+    $scope.logIn = function(){
+        self.loggedIn=true;
+        $scope.route('/home');
+    }
 
     userService
           .loadAllUsers()
@@ -101,7 +176,7 @@
 
    self.removeCourse = removeCourse;
 
-    $scope.tutorCourseList=[
+    $scope.courseList=[
        {'code' : 'ICOM5016',
         'arrowIcon':arrowLeftIcon
        },
@@ -119,38 +194,36 @@
    $scope.saveCourses = function(tempCourses) {
 
         console.log(tempCourses);
-
         while(tempCourses.length > 0)
         {
-           $scope.tutorCourseList.push({'code': tempCourses[0], 'arrowIcon': arrowLeftIcon});
+           $scope.courseList.push({'code': tempCourses[0], 'arrowIcon': arrowLeftIcon});
            tempCourses.splice(0,1);
         }
-
-        console.log(tempCourses);
-        console.log($scope.tutorCourseList);
 
      }
 
    function removeCourse() {
-           $scope.tutorCourseList.splice(courseToDelete,1);
-           console.log($scope.tutorCourseList);
+           $scope.courseList.splice(courseToDelete,1);
+           console.log($scope.courseList);
 
       }
 
     $scope.toggleCourse = function(i){
-       if($scope.tutorCourseList[i].arrowIcon.search(arrowDownIcon)>-1){
-           $scope.tutorCourseList[i].arrowIcon = arrowLeftIcon;
+       if($scope.courseList[i].arrowIcon.search(arrowDownIcon)>-1){
+           $scope.courseList[i].arrowIcon = arrowLeftIcon;
        }
        else{
-           $scope.tutorCourseList[i].arrowIcon = arrowDownIcon;
+           $scope.courseList[i].arrowIcon = arrowDownIcon;
        }
     }
 
     function deleteCourse(course){
-        var index = $scope.tutorCourseList.indexOf(course);
+        var index = $scope.courseList.indexOf(course);
         courseToDelete = index;
         console.log(courseToDelete);
     }
+<<<<<<< HEAD
+=======
 
     $scope.showConfirm = function(ev, course) {
         // Appending dialog to document.body to cover sidenav in docs app
@@ -191,6 +264,7 @@
 
 
 
+>>>>>>> 55ead8795241b7f8bcc8b41e79106d79acf3553f
   }
 
   function DialogController($scope, $mdDialog) {
