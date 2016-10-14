@@ -13,27 +13,7 @@
             <md-tabs md-dynamic-height md-border-bottom>
                 <md-tab label="one">
                     <md-content class="md-padding">
-                        <h3 class="md-display-2">Create</h3>
-                        <md-input-container class="md-icon-float md-block" style="margin-top: 5%;">
-                            <label>Name</label>
-                            <md-icon class="fa fa-users"></md-icon>
-                            <input ng-model="group.name" type="text">
-                        </md-input-container>
-                        <md-input-container class="md-icon-float md-block" style="margin-top: -2%;">
-                            <label>Capacity</label>
-                            <md-icon class="fa fa-users"></md-icon>
-                            <input ng-model="group.capacity" type="text">
-                        </md-input-container>
-                        <md-input-container class="md-icon-float md-block" style="margin-top: -2%;">
-                            <label>Course</label>
-                            <md-icon class="fa fa-list-alt"></md-icon>
-                            <input ng-model="group.course" type="text">
-                        </md-input-container>
-                    </md-content>
-                </md-tab>
-                <md-tab label="two">
-                    <md-content class="md-padding">
-                        <h3 class="md-display-2">Join</h3>
+                        <h4 class="md-display-2">Join</h4>
                         <select class="form-control" ng-model="selectedCourse" ng-change="courseGroups(selectedCourse)">
                             <option disabled selected value>Select a course</option>
                             <option ng-repeat="course in courseList"> {{ course.code }}-{{ course.title }} </option>
@@ -49,6 +29,26 @@
                                 </md-list-item>
                             </md-list>
                         </div>
+                    </md-content>
+                </md-tab>
+                <md-tab label="two">
+                    <md-content class="md-padding">
+                        <h4 class="md-display-2">Create</h4>
+                        <md-input-container class="md-icon-float md-block" style="margin-top: 5%;">
+                            <label>Name</label>
+                            <md-icon class="fa fa-users"></md-icon>
+                            <input ng-model="group.name" type="text" ng-blur="update(group.name, 'name')">
+                        </md-input-container>
+                        <md-input-container class="md-icon-float md-block" style="margin-top: -2%;">
+                            <label>Capacity</label>
+                            <md-icon class="fa fa-users"></md-icon>
+                            <input ng-model="group.limit" type="text" ng-blur="update(group.limit, 'limit')">
+                        </md-input-container>
+                        <md-input-container class="md-icon-float md-block" style="margin-top: -2%;">
+                            <label>Course</label>
+                            <md-icon class="fa fa-list-alt"></md-icon>
+                            <input ng-model="group.course" type="text" ng-blur="update(group.course, 'course')">
+                        </md-input-container>
                     </md-content>
                 </md-tab>
             </md-tabs>
