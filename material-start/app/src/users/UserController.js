@@ -63,8 +63,6 @@
         var year = date.getFullYear();
         var date = year.toString()+'/'+month.toString()+'/'+day.toString();
 
-
-        //
         $("#day")
           .countdown(date, function(event) {
             $(this).text(
@@ -92,8 +90,6 @@
               event.strftime('%S')
             );
           });
-        //
-
 
     }
 
@@ -223,6 +219,34 @@
         courseToDelete = index;
         console.log(courseToDelete);
     }
+<<<<<<< HEAD
+=======
+
+    $scope.showConfirm = function(ev, course) {
+        // Appending dialog to document.body to cover sidenav in docs app
+        var confirm = $mdDialog.confirm()
+              .title('Are you sure you want to delete this course?')
+              .textContent('You can re-add the course later on.')
+              .ariaLabel('Lucky day')
+              .targetEvent(ev)
+              .ok('Yes')
+              .cancel('Cancel');
+
+        $mdDialog.show(confirm).then(function() {
+          $scope.status = 'You decided to get rid of your debt.';
+          deleteCourse(course);
+          removeCourse();
+        }, function() {
+          $scope.status = 'You decided to keep your debt.';
+        });
+      };
+
+
+
+
+
+
+>>>>>>> 55ead8795241b7f8bcc8b41e79106d79acf3553f
   }
 
 })();
