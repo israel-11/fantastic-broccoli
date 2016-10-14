@@ -222,8 +222,7 @@
         courseToDelete = index;
         console.log(courseToDelete);
     }
-<<<<<<< HEAD
-=======
+
 
     $scope.showConfirm = function(ev, course) {
         // Appending dialog to document.body to cover sidenav in docs app
@@ -264,7 +263,6 @@
 
 
 
->>>>>>> 55ead8795241b7f8bcc8b41e79106d79acf3553f
   }
 
   function DialogController($scope, $mdDialog) {
