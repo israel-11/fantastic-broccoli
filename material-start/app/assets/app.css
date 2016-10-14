@@ -571,6 +571,7 @@ $duration: 1.4s;
 
 
 /*Styling for switch in Tutors page - Nelson Alemar*/
+/*
 md-switch ._md-bar {
     width:300%;
     height:100%;
@@ -606,6 +607,7 @@ md-switch ._md-bar {
     top: 0;
     position: absolute;
 }
+*/
 
 
 #clockdiv{

@@ -15,6 +15,7 @@
    */
   function UserController( userService, $mdSidenav, $mdBottomSheet, $timeout, $log, $scope, $mdDialog, $location ) {
     var self = this;
+    self.loggedIn = false;
     self.selected     = null;
     self.users        = [ ];
     self.selectUser   = selectUser;
@@ -30,6 +31,11 @@
 
     $scope.route = function(path){
         $location.path(path);
+    }
+
+    $scope.logIn = function(){
+        self.loggedIn=true;
+        $scope.route('/home');
     }
 
     userService

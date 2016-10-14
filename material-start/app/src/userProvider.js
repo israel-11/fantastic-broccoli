@@ -1,7 +1,11 @@
 var app = angular.module("users")
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
 
-
+    $routeProvider.when('/login',
+        {
+          templateUrl:    'login.html',
+          controller:     'submitController'
+        });
     $routeProvider.when('/home',
     {
       templateUrl:    'src/home/view/home.html',
@@ -29,8 +33,8 @@ var app = angular.module("users")
     });
     $routeProvider.otherwise(
     {
-      redirectTo:     '/home',
-      controller:     'HomeCtrl',
+      redirectTo:     '/login',
+      controller:     'submitController',
     }
   );
 });
