@@ -120,7 +120,7 @@
 //
 //  }
 
-function DemoCtrl ($timeout, $q, $log, $scope, $rootScope) {
+function DemoCtrl ($timeout, $q, $log, $scope, $rootScope, $mdDialog) {
 var self = this;
 
     self.simulateQuery = false;
@@ -161,7 +161,7 @@ var self = this;
 
     function selectedItemChange(item) {
       console.log($rootScope.tempCourses);
-
+       console.log(item);
       $scope.placeholder = "";
     }
 
@@ -236,6 +236,18 @@ var self = this;
             $rootScope.tempCourses=[];
             $scope.placeholder="Ex: ICOM5016 - Databases";
       }
+
+      $scope.hide = function() {
+              $mdDialog.hide();
+            };
+
+            $scope.cancel = function() {
+              $mdDialog.cancel();
+            };
+
+            $scope.answer = function(answer) {
+              $mdDialog.hide(answer);
+            };
 
   }
 
