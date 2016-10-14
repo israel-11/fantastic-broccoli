@@ -33,6 +33,7 @@
             }
     self.courseList=[];
 
+
     $scope.setCalendar = function(){
         $scope.showCalendar = true;
     }
@@ -191,13 +192,13 @@
         }
       ];
 
-   $scope.saveCourses = function(tempCourses) {
+   $scope.saveCourses = function() {
 
-        console.log(tempCourses);
-        while(tempCourses.length > 0)
+        console.log($rootScope.courses);
+        while($rootScope.courses.length > 0)
         {
-           $scope.courseList.push({'code': tempCourses[0], 'arrowIcon': arrowLeftIcon});
-           tempCourses.splice(0,1);
+           $scope.courseList.push({'code': $rootScope.courses[0], 'arrowIcon': arrowLeftIcon});
+           $rootScope.courses.splice(0,1);
         }
 
      }
@@ -243,7 +244,7 @@
         });
       };
 
-    $scope.showAdvanced = function(ev, tempCourses) {
+    $scope.showAdvanced = function(ev) {
         $mdDialog.show({
           controller: DialogController,
           templateUrl: 'addCourses.html',
@@ -254,7 +255,7 @@
         })
         .then(function(answer) {
           $scope.status = 'You said the information was "' + answer + '".';
-          saveCourses(tempCourses);
+          $scope.saveCourses();
         }, function() {
           $scope.status = 'You cancelled the dialog.';
         });
