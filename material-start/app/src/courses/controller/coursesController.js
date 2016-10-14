@@ -29,4 +29,12 @@ var app = angular.module("users")
 
    }
 
+   $scope.ratings = [{
+           current: 5,
+           max: 10
+       }, {
+           current: 3,
+           max: 5
+       }];
+
 });

@@ -1,10 +1,10 @@
-<div ng-controller="UserController as users">
+<div ng-controller="groupController as groups">
     <md-content flex="80" flex-offset="10">
         <h1>My Groups</h1>
         <button ng-controller="groupController" ng-click="test()" style="margin-top:-4%;" type="button" data-toggle="modal" data-target='#newGroupModal' class="btn btn-info col-xs-2 col-xs-push-10">New Group</button>
         <md-divider></md-divider>
 
-        <md-list ng-repeat="group in groupList">
+        <md-list ng-repeat="group in groupsList">
             <md-button ng-click="toggleGroups($index)" style="width: 100%" data-toggle="collapse" data-target="#{{group.id}}">
                 <md-list-item class="md-3-line">
                     <div class="md-list-item-text">
@@ -17,7 +17,7 @@
             <div class="collapse" id="{{group.id}}">
                 <md-subheader class="md-no-sticky" style="padding-top: 0px; padding-bottom: 0px;">
                     <div>
-                        <h5 style="height: 36px; line-height: 250%;">Capacity: {{group.size}} of {{group.limit}} <md-button ng-click="users.removeGroup(group)" class="md-primary" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; height: 30px; float: right;">Leave</md-button>
+                        <h5 style="height: 36px; line-height: 250%;">Capacity: {{group.size}} of {{group.limit}} <md-button ng-click="removeGroup(group)" class="md-primary" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; height: 30px; float: right;">Leave</md-button>
                         </h5>
                     </div>
                     <md-list ng-repeat="members in group.members" style="height: 76px; padding-top: 0px; padding-bottom: 0px;">

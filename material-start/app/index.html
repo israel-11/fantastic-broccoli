@@ -23,6 +23,7 @@
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>-->
     <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
 
+
     <style type="text/css">
         /**
          * Hide when Angular is not yet loaded and initialized
@@ -123,7 +124,7 @@
   </div>
 
   <!-- New Group Modal -->
-  <div ng-controller="submitController" class="modal fade" id="newGroupModal" role="dialog">
+  <div ng-controller="groupController" class="modal fade" id="newGroupModal" role="dialog">
       <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
@@ -162,7 +163,7 @@
                       <md-list ng-repeat="item in items" ng-model="selectedCourse" ng-change="courseGroups(selectedCourse)">
                           <md-list-item>
                               <div class="md-list-item-text">
-                                  <md-checkbox ng-checked="exists(item, selected)" ng-click="toggle(item, selected)">
+                                  <md-checkbox ng-checked="exists(item, list)" ng-click="toggle(item, list)">
                                       {{item.name}}
                                   </md-checkbox>
                               </div>
@@ -196,6 +197,8 @@
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="src/login/submitController.js"></script>
   <script src="src/groups/controller/groupController.js"></script>
+
+  <script src="src/settings/controller/settings.js"></script>
 
   <!--<<<<<<< HEAD-->
   <script src="src/courses/controller/coursesController.js"></script>

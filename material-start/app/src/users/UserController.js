@@ -139,53 +139,6 @@
        }
     }
 
-
-
- /* All of the following pertains to groups*/
-
-   var arrowDownIcon = "fa fa-chevron-down";
-   var arrowLeftIcon = "fa fa-chevron-left";
-   $scope.availability = "Available";
-
-   self.removeGroup = removeGroup;
-
-   var members = [{'name' : 'Tahiri Ciquitraque'}, {'name' : 'Nelson Triple A'}, {'name' : 'Israel La Bestia'}]
-
-   $scope.groupList = [
-     {'id' : '1', 'name' : 'Project', 'size' : '3', 'limit' : '4', 'arrowIcon' : arrowLeftIcon, 'members' : members},
-     {'id' : '2', 'name' : 'Exam 1', 'size' : '3', 'limit' : '3', 'arrowIcon' : arrowLeftIcon, 'members' : members},
-     {'id' : '3', 'name' : 'Study Group', 'size' : '3', 'limit' : '8', 'arrowIcon' : arrowLeftIcon, 'members': members},
-     {'id' : '4', 'name' : 'Chilea', 'size' : '3', 'limit' : '5', 'arrowIcon' : arrowLeftIcon, 'members': members}
-   ]
-
-
-   $scope.saveGroup = function(tempGroups) {
-
-   console.log(tempGroups);
-
-          for(i = 0; i < tempGroups; i++)
-          {
-            console.log(tempGroups);
-          }
-
-     }
-
-   function removeGroup(group) {
-           var index = $scope.groupList.indexOf(group);
-           console.log(index);
-           $scope.groupList.splice(index,1);
-
-      }
-
-    $scope.toggleGroups = function(i){
-       if($scope.groupList[i].arrowIcon.search(arrowDownIcon)>-1){
-           $scope.groupList[i].arrowIcon = arrowLeftIcon;
-       }
-       else{
-           $scope.groupList[i].arrowIcon = arrowDownIcon;
-       }
-    }
-
   }
 
 
