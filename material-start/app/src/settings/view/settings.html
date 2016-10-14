@@ -1,0 +1,47 @@
+<md-content style="overflow-x:hidden;" layout="column">
+    <h3 class="text-center">Settings</h3>
+    <md-input-container class="md-icon-float md-block col-xs-6 col-xs-push-3">
+        <!-- Use floating label instead of placeholder -->
+        <label>Name</label>
+        <md-icon style="font-size:20px;" class="fa fa-user"></md-icon>
+        <input ng-model="name" type="text">
+    </md-input-container>
+    <md-input-container class="md-icon-float md-block col-xs-6 col-xs-push-3">
+        <!-- Use floating label instead of placeholder -->
+        <label>Status Message</label>
+        <md-icon style="font-size:20px;" class="fa fa-comment-o"></md-icon>
+        <input ng-model="status" type="text">
+    </md-input-container>
+
+    <md-content class="col-xs-4 col-xs-push-4">
+        <h4 class="col-md-4 col-push-4" style="padding-left:5%;">Profile Image</h4>
+
+        <script>
+                          function readURL(input) {
+                            if (input.files && input.files[0]) {
+                              var reader = new FileReader();
+
+                              reader.onload = function (e) {
+                                $('#profile_pic')
+                                    .attr('src', e.target.result)
+                                    .width(100)
+                                    .height(100);
+
+                              };
+
+                              reader.readAsDataURL(input.files[0]);
+                            }
+                          }
+                      </script>
+
+        <div class="col-md-4 col-push-4" style="margin-top: 10px; padding-left:10%;">
+            <img id="profile_pic" src="" align="middle"/>
+        </div>
+
+        <form class="row" id="form2" runat="server">
+            <input style="visibility:hidden;" type="file" name="file" id="profileImage" onchange="readURL(this);"/>
+            <label style="margin-top: 10%;" class="btn btn-info col-xs-3 col-xs-push-4" for="profileImage">Choose</label>
+        </form>
+    </md-content>
+    <button style="margin-top:10%" class="btn btn-success col-xs-4 col-xs-push-4">Save Settings</button>
+</md-content>

@@ -1,16 +1,25 @@
 var app = angular.module("users")
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
 
-
+    $routeProvider.when('/login',
+        {
+          templateUrl:    'login.html',
+          controller:     'submitController'
+        });
     $routeProvider.when('/home',
     {
-      templateUrl:    'home.html',
+      templateUrl:    'src/home/view/home.html',
       controller:     'HomeCtrl'
     });
     $routeProvider.when('/courses',
     {
       templateUrl:    'src/courses/view/courses.html',
       controller:     'CoursesCtrl'
+    });
+    $routeProvider.when('/courses/tutors-profile',
+    {
+          templateUrl:    'src/tutors/view/tutors-profile.html',
+          controller:     'TutorsProfileCtrl'
     });
     $routeProvider.when('/groups',
     {
@@ -22,10 +31,15 @@ var app = angular.module("users")
           templateUrl:    'src/tutors/view/tutors.html',
           controller:     'TutorsCtrl'
     });
+    $routeProvider.when('/settings',
+    {
+          templateUrl:    'src/settings/view/settings.html',
+          controller:     'SettingsCtrl'
+    });
     $routeProvider.otherwise(
     {
-      redirectTo:     '/home',
-      controller:     'HomeCtrl',
+      redirectTo:     '/login',
+      controller:     'submitController',
     }
   );
 });
@@ -58,5 +72,9 @@ app.controller('TutorsCtrl', function($scope, $compile) {
 });
 
 app.controller('HomeCtrl', function($scope, $compile) {
+
+});
+
+app.controller('SettingsCtrl', function($scope, $compile) {
 
 });

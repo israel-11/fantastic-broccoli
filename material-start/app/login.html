@@ -1,0 +1,55 @@
+<div layout="column" ng-cloak class="contentdemoBasicUsage">
+
+    <md-content flex="">
+        <md-toolbar class="md-info">
+            <div class="md-toolbar-tools">
+                <h2 class="md-flex">Welcome to RUM Helper</h2>
+            </div>
+        </md-toolbar>
+
+        <md-content flex="40" flex-offset="30" style="margin-top:7%;">
+            <md-input-container class="md-icon-float md-block">
+                <!-- Use floating label instead of placeholder -->
+                <label>Email</label>
+                <md-icon style="font-size:20px;" class="fa fa-envelope"></md-icon>
+                <input ng-model="email" type="text">
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block">
+                <!-- Use floating label instead of placeholder -->
+                <label>Password</label>
+                <md-icon style="font-size:25px;" class="fa fa-lock"></md-icon>
+                <input type="password" ng-model="password" type="text">
+                <h4 style="color:rgb(30,136,229); padding-top:5%;">Forgot Password?</h4>
+                {{feedback}}
+            </md-input-container>
+            <md-content layout="row">
+                <h4 style="color:rgb(30,136,229); cursor:pointer;" flex="25" flex-offset="50"
+                    class="md-primary" data-toggle="modal" data-target='#loginModal'>Sign Up</h4>
+                <md-button ng-click="logIn()" flex="25" class="md-raised md-primary">Log In</md-button>
+            </md-content>
+        </md-content>
+    </md-content>
+
+
+</div>
+
+
+<!--<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>-->
+<!--<script>-->
+    <!--// Initialize Firebase-->
+    <!--var config = {-->
+      <!--apiKey: "AIzaSyDSZWGNmPuN6iNKXDvZA0GX4yQWhYYn0n4",-->
+      <!--authDomain: "db-project-75679.firebaseapp.com",-->
+      <!--databaseURL: "https://db-project-75679.firebaseio.com",-->
+      <!--storageBucket: "db-project-75679.appspot.com",-->
+    <!--};-->
+    <!--firebase.initializeApp(config);-->
+  <!--</script>-->
+<!--<script src="./jspm_packages/system.js" type="text/javascript"></script>-->
+<!--<script src="config.js" type="text/javascript"></script>-->
+<!--<script type="text/javascript">-->
+    <!--System-->
+        <!--.import('src/boot/boot')-->
+        <!--.catch( console.error.bind(console) ); // make sure any errors print to console-->
+  <!--</script>-->
+<!--<script src="authenticationController.js"></script>-->
