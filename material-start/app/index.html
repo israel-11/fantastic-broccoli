@@ -155,7 +155,7 @@
                   <div class="modal-header">
                       <h4 class="modal-title text-center">Join a group</h4>
                   </div>
-                  <select ng-model="selectedCourse" ng-change="courseGroups(selectedCourse)">
+                  <select class="form-control" ng-model="selectedCourse" ng-change="courseGroups(selectedCourse)">
                       <option disabled selected value>Select a course</option>
                       <option ng-repeat="course in courseList"> {{ course.code }}-{{ course.title }} </option>
                   </select>
@@ -179,8 +179,6 @@
       </div>
   </div>
 
-
-
   </body>
 
   <script src="../node_modules/angular/angular.js"></script>
@@ -198,7 +196,7 @@
   <script src="src/login/submitController.js"></script>
   <script src="src/groups/controller/groupController.js"></script>
 
-  <script src="src/settings/controller/settings.js"></script>
+  <script src="src/settings/controller/settingsController.js"></script>
 
   <!--<<<<<<< HEAD-->
   <script src="src/courses/controller/coursesController.js"></script>

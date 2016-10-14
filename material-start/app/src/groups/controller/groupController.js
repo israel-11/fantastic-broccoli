@@ -1,5 +1,5 @@
 var app = angular.module("users")
-.controller('groupController', function($scope, $compile, $location, $rootScope) {
+.controller('groupController', function($scope, $compile, $location, $rootScope, $mdDialog) {
 
     var arrowDownIcon = "fa fa-chevron-down"
     var arrowLeftIcon = "fa fa-chevron-left"
@@ -112,5 +112,29 @@ var app = angular.module("users")
 
     self.removeGroup = $scope.removeGroup;
     self.submitGroup = $scope.submitGroup;
+
+    $scope.showTabDialog = function(ev) {
+        $mdDialog.show({
+          controller: DialogController,
+          templateUrl: 'tabDialog.tmpl.html',
+          parent: angular.element(document.body),
+          targetEvent: ev,
+          clickOutsideToClose:true
+        })
+      };
+
+     function DialogController($scope, $mdDialog) {
+         $scope.hide = function() {
+           $mdDialog.hide();
+         };
+
+         $scope.cancel = function() {
+           $mdDialog.cancel();
+         };
+
+         $scope.answer = function(answer) {
+           $mdDialog.hide(answer);
+         };
+       }
 });
 
