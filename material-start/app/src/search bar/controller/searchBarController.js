@@ -201,7 +201,7 @@ var self = this;
       var lowercaseQuery = angular.lowercase(query);
 
       return function filterFn(item) {
-        return (item.value.indexOf(lowercaseQuery) === 0);
+        return (item.value.indexOf(lowercaseQuery) != -1);
       };
 
     }
@@ -217,7 +217,8 @@ var self = this;
 
     self.newCourse = function(chip) {
       return {
-        Code: chip.Code
+        Code: chip.Code,
+        Title: chip.Title
       };
     };
 
