@@ -1,5 +1,5 @@
 var app = angular.module("users")
-.controller('tutorsController', function($scope, $compile) {
+.controller('tutorController', function($scope, $compile) {
 
    $scope.availability = "Available";
    var arrowDownIcon = "fa fa-chevron-down";
@@ -33,14 +33,6 @@ var app = angular.module("users")
    }
 
    $scope.saveCourses = function() {
-
-        for(i = 0; i < $scope.tempCourses; i++)
-        {
-            var obj = JSON.parse($scope.courseList);
-            obj.push({'code': $scope.tempCourses[i].Code, 'arrowIcon':arrowLeftIcon});
-            $scope.courseList = JSON.stringify(obj);
-
-        }
 
    }
 
