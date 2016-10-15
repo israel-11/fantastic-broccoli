@@ -120,7 +120,7 @@
 //
 //  }
 
-function DemoCtrl ($timeout, $q, $log, $scope, $rootScope) {
+function DemoCtrl ($timeout, $q, $log, $scope, $rootScope, $mdDialog) {
 var self = this;
 
     self.simulateQuery = false;
@@ -133,8 +133,9 @@ var self = this;
     self.removeChip = removeChip;
     $scope.message = "";
     $scope.placeholder="Ex: ICOM5016 - Databases";
+    self.tempCourses=[];
+    $rootScope.courses = self.tempCourses;
 
-    $rootScope.tempCourses=[];
 
     // ******************************
     // Internal methods
@@ -160,9 +161,10 @@ var self = this;
     }
 
     function selectedItemChange(item) {
-      console.log($rootScope.tempCourses);
-
+      console.log(self.tempCourses);
+       console.log(item);
       $scope.placeholder = "";
+      $rootScope.courses = self.tempCourses;
     }
 
     /**
@@ -233,9 +235,21 @@ var self = this;
 
     $scope.deleteTemp = function() {
 
-            $rootScope.tempCourses=[];
+            self.tempCourses=[];
             $scope.placeholder="Ex: ICOM5016 - Databases";
       }
+
+      $scope.hide = function() {
+              $mdDialog.hide();
+            };
+
+            $scope.cancel = function() {
+              $mdDialog.cancel();
+            };
+
+            $scope.answer = function(answer) {
+              $mdDialog.hide(answer);
+            };
 
   }
 

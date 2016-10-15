@@ -5,20 +5,20 @@ var app = angular.module("users")
    var arrowDownIcon = "fa fa-chevron-down";
    var arrowLeftIcon = "fa fa-chevron-left";
 
-   /*$scope.tutorCourseList=[
-    {'code' : 'ICOM5016',
-     'arrowIcon':arrowLeftIcon
-    },
-    {'code' : 'ICOM4035',
-     'arrowIcon':arrowLeftIcon
-    },
-    {'code' : 'ICOM4075',
-     'arrowIcon':arrowLeftIcon
-    },
-    {'code' : 'ICOM4009',
-     'arrowIcon':arrowLeftIcon
-     }
-   ];*/
+//   $scope.tutorCourseList=[
+//    {'code' : 'ICOM5016',
+//     'arrowIcon':arrowLeftIcon
+//    },
+//    {'code' : 'ICOM4035',
+//     'arrowIcon':arrowLeftIcon
+//    },
+//    {'code' : 'ICOM4075',
+//     'arrowIcon':arrowLeftIcon
+//    },
+//    {'code' : 'ICOM4009',
+//     'arrowIcon':arrowLeftIcon
+//     }
+//   ];
 
 
 
@@ -32,17 +32,17 @@ var app = angular.module("users")
 
    }
 
-   $scope.saveCourses = function() {
-
-        for(i = 0; i < $scope.tempCourses; i++)
-        {
-            var obj = JSON.parse($scope.courseList);
-            obj.push({'code': $scope.tempCourses[i].Code, 'arrowIcon':arrowLeftIcon});
-            $scope.courseList = JSON.stringify(obj);
-
-        }
-
-   }
+//   $scope.saveCourses = function() {
+//
+//        for(i = 0; i < $scope.tempCourses; i++)
+//        {
+//            var obj = JSON.parse($scope.courseList);
+//            obj.push({'code': $scope.tempCourses[i].Code, 'arrowIcon':arrowLeftIcon});
+//            $scope.courseList = JSON.stringify(obj);
+//
+//        }
+//
+//   }
 
 
 

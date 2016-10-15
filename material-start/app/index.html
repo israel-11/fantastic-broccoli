@@ -32,7 +32,7 @@
   </head>
 
   <body style="overflow-x:hidden;" ng-app="myApp" layout="column" ng-controller="UserController as user" ng-cloak>
-  <navbar ng-if="user.loggedIn"></navbar>
+  <navbar ng-hide="isNavBarHide()"></navbar>
     <div flex layout="row">
       <left-sidebar></left-sidebar>
 
@@ -273,7 +273,7 @@
   </div>
   <!--Add New Courses Modal-->
 
-  <div ng-controller="searchBarCtrl as ctrl" style="margin-top: 25%" class="modal fade" id="newCourseModal" role="dialog">
+  <div ng-controller="searchBarCtrl as ctrl" class="modal fade" id="newCourseModal" role="dialog">
       <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
@@ -293,12 +293,9 @@
   </div>
 
   <!--Confirmation of tutor course deletion modal-->
-  <div ng-controller="UserController as users" style="margin-top: 25%" class="modal fade" id="confirm-delete" role="dialog">
-
-  <!--<div ng-controller="UserController as users" style="margin-top: 25%" class="modal fade" id="confirm-delete" role="dialog">
->>>>>>> 55ead8795241b7f8bcc8b41e79106d79acf3553f
+  <div ng-controller="UserController as users" class="modal fade" id="confirm-delete" role="dialog">
       <div class="modal-dialog">
-          &lt;!&ndash; Modal content&ndash;&gt;
+          <!-- Modal content-->
           <div class="modal-content">
               <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -306,15 +303,11 @@
               </div>
               <div ng-controller="UserController" class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                  <button ng-click="users.removeCourse()" data-dismiss="modal" class="btn btn-success">Yes</button>
+                  <button ng-click="dialog.hide()" data-dismiss="modal" class="btn btn-success">Yes</button>
               </div>
           </div>
       </div>
-<<<<<<< HEAD
   </div>
-=======
-  </div>-->
-
 
   </body>
 

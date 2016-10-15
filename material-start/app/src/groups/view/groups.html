@@ -1,7 +1,7 @@
 <div ng-controller="groupController as groups">
     <md-content style="overflow-x:hidden;" flex="80" flex-offset="10">
         <h1>My Groups</h1>
-        <button ng-controller="groupController" ng-click="test()" style="margin-top:-4%;" type="button" data-toggle="modal" data-target='#newGroupModal' class="btn btn-info col-xs-2 col-xs-push-10">New Group</button>
+        <md-button ng-controller="groupController" ng-click="showTabDialog($event)" style="margin-top:-4%;" type="button" data-toggle="modal" data-target='#n' class="md-primary md-raised btn btn-info col-xs-2 col-xs-push-10">New Group</md-button>
         <md-divider></md-divider>
 
         <md-list ng-repeat="group in groupsList">

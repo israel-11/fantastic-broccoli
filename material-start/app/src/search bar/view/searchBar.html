@@ -3,14 +3,14 @@
     <md-content style="background-color: #fff;min-height: 0;" class="md-padding autocomplete" layout="column">
         <br>
         <h2 ng-if="message.length>1" class="md-title">{{ message }}</h2>
-        <md-chips ng-model="tempCourses" readonly="ctrl.readonly" md-removable="ctrl.removable" md-transform-chip="ctrl.newCourse($chip)" md-require-match="true" md-on-remove="ctrl.removeChip($chip)">
+        <md-chips ng-model="ctrl.tempCourses" readonly="ctrl.readonly" md-removable="ctrl.removable" md-transform-chip="ctrl.newCourse($chip)" md-require-match="true" md-on-remove="ctrl.removeChip($chip)">
             <md-autocomplete
                     ng-disabled="ctrl.isDisabled"
                     md-no-cache="true"
                     md-selected-item="ctrl.selectedItem"
                     md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
                     md-search-text="ctrl.searchText"
-                    md-selected-item-change="ctrl.selectedItemChange(item)"
+                    md-selected-item-change="!isFire && selectedItemChange(item)"
                     md-items="item in ctrl.querySearch(ctrl.searchText)"
                     md-item-text="item"
                     md-min-length="1"
@@ -24,7 +24,7 @@
                     <span class="item-metastat">
                       <strong>{{item.Title}}</strong>
                     </span>
-                  </span>
+                    </span>
                 </md-item-template>
             </md-autocomplete>
             <md-chip-template>
@@ -35,6 +35,5 @@
         </md-chips>
     </md-content>
 </div>
-
 
 

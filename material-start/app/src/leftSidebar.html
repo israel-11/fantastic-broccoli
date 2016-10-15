@@ -9,27 +9,33 @@
                     </md-list-item>
                 </md-card-title-media>
                 <md-card-title-text style="padding-top:5%" flex="60">
-                    <span class="md-headline">{{userSettings.name}}</span>
+                    <span class="md-headline">{{userName}}</span>
                 </md-card-title-text>
             </md-card-title>
             <md-card-actions style="padding-left:4%;" layout="row">
-                <p flex="65">{{userSettings.status}}</p>
+                <p flex="65">{{user.userSettings.status}}</p>
             </md-card-actions>
         </md-card>
 
-        <md-list-item layout="row">
+        <md-list-item ng-if="userRole=='tutors'" layout="row">
+            <md-button ng-click="route('/tutors')" layout="row">
+                <p class="fa fa-home fa-lg" flex="20" data-toggle="modal"></p>
+                <p flex="80" data-toggle="modal">Home</p>
+            </md-button>
+        </md-list-item>
+        <md-list-item ng-if="userRole!='tutors'" layout="row">
             <md-button ng-click="route('/home')" layout="row">
                 <p class="fa fa-home fa-lg" flex="20" data-toggle="modal"></p>
                 <p flex="80" data-toggle="modal">Home</p>
             </md-button>
         </md-list-item>
-        <md-list-item layout="row">
+        <md-list-item ng-if="userRole!='tutors'" layout="row">
             <md-button ng-click="route('/courses')" layout="row">
                 <p class="fa fa-book fa-lg" flex="20" data-toggle="modal"></p>
                 <p flex="80" data-toggle="modal">Courses</p>
             </md-button>
         </md-list-item>
-        <md-list-item layout="row">
+        <md-list-item ng-if="userRole!='tutors'" layout="row">
             <md-button ng-click="route('/groups')" layout="row">
                 <p class="fa fa-users fa-lg" flex="20" data-toggle="modal" data-target='#'></p>
                 <p flex="80" data-toggle="modal" data-target='#'>Groups</p>
@@ -42,7 +48,7 @@
             </md-button>
         </md-list-item>
         <md-list-item layout="row">
-            <md-button ng-click="" layout="row">
+            <md-button ng-click="route('/login')" layout="row">
                 <p class="fa fa-power-off fa-lg" flex="20"><img ng-src="" alt=""></p>
                 <p flex="80">Log Out</p>
             </md-button>
