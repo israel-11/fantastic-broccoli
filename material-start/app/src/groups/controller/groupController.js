@@ -156,7 +156,6 @@ var app = angular.module("users")
         })
          .then(function(answer) {
                   $scope.status = 'You said the information was "' + answer + '".';
-                  submitGroup();
                 }, function() {
                   $scope.status = 'You cancelled the dialog.';
                 });

@@ -31,7 +31,6 @@ var app = angular.module("users")
             'image' : 'coger path'
             }
     self.courseList=[];
-    $scope.tempCourses = [];
 
     $scope.setCalendar = function(){
         $scope.showCalendar = true;
@@ -48,7 +47,7 @@ var app = angular.module("users")
         'lastName':$scope.lastName,
         'image' : 'coger path'
         }
-        console.log($scope.courseList);
+        //console.log($scope.courseList);
         self.loggedIn=true;
         $scope.route('/home');
     }
@@ -177,6 +176,8 @@ var app = angular.module("users")
    self.removeCourse = removeCourse;
    self.tempCourses = [];
 
+   $rootScope.tempCourses = [];
+
    $scope.courseList=[
        {'code' : 'ICOM5016',
         'arrowIcon':arrowLeftIcon
@@ -197,27 +198,49 @@ var app = angular.module("users")
         {'code' : 'ICOM4035','arrowIcon': arrowLeftIcon}
    ]
 
-   $scope.newObject = {'code' : '','arrowIcon': arrowLeftIcon};
+   //$scope.newObject = {'code' : '','arrowIcon': arrowLeftIcon};
 
-   $scope.saveCourses = function(tempCourses) {
+   function selectedItemChange(item) {
+         //console.log(self.tempCourses);
+         //console.log(item);
+         //console.log(item.Code);
+         $scope.item = item;
+         $rootScope.tempCourses.push({'code': $scope.item.Code, 'arrowIcon': arrowLeftIcon});
+         //$rootScope.currentCourses.push({'code': $scope.item.Code, 'arrowIcon': arrowLeftIcon});
 
-        //console.log(tempCourses);
-        //console.log($rootScope.currentCourses);
-        console.log(self.tempCourses.length);
-        console.log(self.tempCourses[0]);
+         console.log($rootScope.tempCourses);
 
-        while(tempCourses.length > 0)
-        {
-           //$rootScope.currentCourses.push({'code': tempCourses[1], 'arrowIcon': arrowLeftIcon});
-           //self.tempCourses.splice(0,1);
-           console.log($rootScope.currentCourses);
+         //console.log($rootScope.currentCourses);
+   //      $scope.tempCourses.push(item);
+   }
+
+   function saveCourses() {
+        var length = $rootScope.tempCourses.length;
+        console.log($rootScope.tempCourses);
+        for (var i = 0; i < length; i++) {
+            $rootScope.currentCourses.push($rootScope.tempCourses[i]);
+            console.log($rootScope.tempCourses[i]);
+
         }
+        console.log($rootScope.currentCourses);
+
+//        console.log(tempCourses);
+//        console.log($rootScope.currentCourses);
+//        console.log(self.tempCourses.length);
+//        console.log(self.tempCourses[0]);
+//
+//        while(tempCourses.length > 0)
+//        {
+//           $rootScope.currentCourses.push({'code': tempCourses[1], 'arrowIcon': arrowLeftIcon});
+//           self.tempCourses.splice(0,1);
+//           console.log($rootScope.currentCourses);
+//        }
 
      }
 
    function removeCourse() {
            $rootScope.currentCourses.splice(courseToDelete,1);
-           console.log($rootScope.currentCourses);
+           //console.log($rootScope.currentCourses);
 
       }
 
@@ -233,7 +256,7 @@ var app = angular.module("users")
     function deleteCourse(course){
         var index = $rootScope.currentCourses.indexOf(course);
         courseToDelete = index;
-        console.log(courseToDelete);
+        //console.log(courseToDelete);
     }
 
 
@@ -267,8 +290,7 @@ var app = angular.module("users")
         })
         .then(function(answer) {
           $scope.status = 'You said the information was "' + answer + '".';
-          $scope.saveCourses(self.tempCourses);
-          console.log(self.tempCourses);
+          //console.log(self.tempCourses);
         }, function() {
           $scope.status = 'You cancelled the dialog.';
         });
@@ -325,17 +347,7 @@ var app = angular.module("users")
     function searchTextChange(text) {
     }
 
-    function selectedItemChange(item) {
-      console.log(self.tempCourses);
-      console.log(item);
-      console.log(item.Code);
-      $scope.item = item;
-      $rootScope.currentCourses.push({'code': $scope.item.Code, 'arrowIcon': arrowLeftIcon});
-      //$scope.tempCourses.push({'code': $scope.item.Code, 'arrowIcon': arrowLeftIcon});
-      console.log($scope.tempCourses);
-      console.log($scope.currentCourses);
-//      $scope.tempCourses.push(item);
-    }
+
 
     /**
      * Build `components` list of key/value pairs
@@ -402,7 +414,7 @@ var app = angular.module("users")
     function removeChip(chip) {
 //        var data = JSON.parse($scope.tempCourses);
 //        var index = data.map(function(d) { return d['Code']; }).indexOf(chip.Code);
-        console.log(self.tempCourses);
+        //console.log(self.tempCourses);
     }
 
   });
